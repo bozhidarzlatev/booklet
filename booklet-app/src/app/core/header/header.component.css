@@ -1,0 +1,168 @@
+.body{
+    height: 10000px;
+}
+
+.header {
+    position: fixed;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px black solid;
+    background-color:  rgb(248, 189, 138);
+    height: 40px;
+    border-radius: 20px;
+    /* transition: height 0.6s, border-radius 0.6s; */
+}
+
+.left-section, .middle-section, .right-section{
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.header:hover {
+    height: 120px;
+    border-radius: 60px;
+}
+
+.home-icon {
+    height: fit-content;
+    width: fit-content;
+}
+
+
+
+
+
+.home-btn {
+    border: none;
+    border-radius:18px ;
+    height: 36px;
+    width: 36px;
+    background-color: rgb(248, 189, 138);
+}
+
+.header:hover .home-icon{
+    height: 60px;
+    width: 60px;
+}
+
+.header:hover .home-btn{
+    
+    border-radius: 45px;
+    height: 90px;
+    width: 90px;
+}
+
+
+
+
+
+
+.home-btn:hover{
+    border: none;
+    
+    background-color: rgb(209, 116, 35);
+}
+
+.home-btn:active{
+    border: none;
+    
+    background-color: rgb(126, 60, 2);
+    
+}
+
+
+.browse-btn, 
+.add-btn,
+.user-btns,
+.guest-btns,
+.app-name{
+    background-color: rgb(248, 189, 138);
+    height: 36px;
+    width: fit-content;
+    border-radius: 18px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: none;
+    font-size: 20px;
+}
+
+.add-btn {
+    margin-left: 20px;
+}
+
+.browse-btn:hover, 
+.guest-btns:hover,
+.user-btns:hover,
+.add-btn:hover{
+    border: none;
+    cursor: pointer;
+    background-color: rgb(209, 116, 35);
+}
+
+.browse-btn:active, 
+.add-btn:active,
+.user-btns:active,
+.guest-btns:active{
+    border: none;
+    
+    background-color: rgb(126, 60, 2);
+    color: white;
+    
+}
+
+.header:hover .browse-btn,
+.header:hover .add-btn,
+.header:hover .guest-btns,
+.header:hover .user-btns,
+.header:hover .app-name{
+    height: 60px;
+
+    align-items: center;
+    border-radius: 30px;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.user-btns ,
+.guest-btns{
+    /* margin-left: 10px; */
+    margin-right: 10px;
+
+}
+
+.browse-btn .tooltip,
+.home-btn .tooltip,
+.user-btns .tooltip,
+.guest-btns .tooltip,
+.add-btn .tooltip
+{
+    position: absolute;
+    background-color: rgb(58, 57, 57);
+    color: rgb(235, 215, 215);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 4px;
+    font-size: 25px; 
+    bottom: -40px;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap; 
+   
+ } 
+
+ .browse-btn:hover .tooltip,
+ .home-btn:hover .tooltip,
+ .user-btns:hover .tooltip,
+ .guest-btns:hover .tooltip,
+ .add-btn:hover .tooltip
+ {
+    opacity: 1;
+    transition: opacity 0.3s;
+ }

@@ -1,0 +1,56 @@
+<header class="header">
+    <div class="left-section">
+        <button class="home-btn" href="/home">
+            <!-- Custom icon (SVG or image) -->
+            <img class="home-icon" src="app-resourses/book-store-icon.svg" a/>
+            <div class="tooltip">Home</div>
+        </button>
+        <div class="app-name">Booklet.com</div>
+    </div>
+    
+    <div class="middle-section">
+        <button class="browse-btn" href="/all">
+            <div >Browse</div>
+            <div class="tooltip">View all books </div>
+        </button>
+        @if (isLoggedIn) {
+        <button class="add-btn" href="/add">
+            <div >Add</div>
+            <div class="tooltip">Add new books...</div>
+        </button>
+        }
+    </div>
+
+
+    <div class="right-section">
+        @if (!isLoggedIn) {
+
+            <button class="guest-btns" href="/login">
+                <div>Login</div>
+                <div class="tooltip">Login now!</div>
+            </button>
+            <button class="guest-btns" href="/register">
+                <div>Rergister</div>
+                <div class="tooltip">Create new account</div>
+            </button>
+        } @else {
+            
+            <button class="user-btns" href="/logout">
+                <div>Logout</div>
+                <div class="tooltip">See you soon ;)</div>
+            </button>
+            <button class="user-btns" href="/profile">
+                <div>Profile</div>
+                <div class="tooltip">View .... profile</div>
+            </button>
+            <button class="user-btns" href="/cart">
+                <div>Cart</div>
+                <div class="tooltip">Items you've added to cart</div>
+            </button>
+        }
+
+    </div>
+
+
+
+</header>

@@ -13,3 +13,14 @@ My project is about an online bookstore - booklet, where there should be functio
     * search options
     * and others.
 
+The development is planned to proceed as shown:
+
+        [                      WHAT                                    ]    [   Planned days      ]    [     START DAY     ]    [     END DAY    ]     [  Days needed ]
+        
+    1 - Set Angular                                                                0 days
+    2 - Fron-end development - HTML and CSS set up and different views.            2-3 days
+    3 - Back-end - currently i don't have idea or solution.. ;)                    7 days max
+    4 - Implementing Angular features.                                             10 days max
+
+
+

@@ -1,6 +1,4 @@
-.body{
-    height: 10000px;
-}
+
 
 .header {
     position: fixed;
@@ -136,7 +134,7 @@
 }
 
 .browse-btn .tooltip,
-.home-btn .tooltip,
+/* .home-btn .tooltip, */
 .user-btns .tooltip,
 .guest-btns .tooltip,
 .add-btn .tooltip
@@ -148,14 +146,33 @@
     padding-bottom: 4px;
     padding-left: 8px;
     padding-right: 8px;
-    border-radius: 4px;
-    font-size: 25px; 
+    border-radius: 26px;
+    font-size: 18px; 
     bottom: -40px;
+    left: 50%;     /* Center the tooltip horizontally */
+    transform: translateX(-50%); /* Adjust tooltip to perfectly center horizontally */
     opacity: 0;
     pointer-events: none;
     white-space: nowrap; 
    
  } 
+
+ .home-btn .tooltip{
+    position: absolute;
+    background-color: rgb(58, 57, 57);
+    color: rgb(235, 215, 215);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-radius: 26px;
+    font-size: 25px; 
+    bottom: -20px;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap; 
+ }
+
 
  .browse-btn:hover .tooltip,
  .home-btn:hover .tooltip,
@@ -166,3 +183,18 @@
     opacity: 1;
     transition: opacity 0.3s;
  }
+
+ .browse-btn .tooltip::after,
+.home-btn .tooltip::after,
+.user-btns .tooltip::after,
+.guest-btns .tooltip::after,
+.add-btn .tooltip::after {
+    content: '';
+    position: absolute;
+    top: -10%;  /* Arrow at the bottom of the tooltip */
+    left: 50%;  /* Center the arrow */
+    transform: translateX(-50%);
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid rgb(58, 57, 57);  /* Arrow color */
+}

@@ -4,7 +4,6 @@ footer {
     left: 10px;
     right: 10px;
     flex-direction: row;
-    border: 1px black solid;
     background-color:  rgb(248, 189, 138);
     height: fit-content;
     text-align: center;
@@ -15,12 +14,4 @@ footer {
     footer p {
         margin: 0; 
       }
-
       
-
-.p {
-    font-family: "Parkinsans", sans-serif;
-    font-optical-sizing: auto;
-  
-    font-style: normal;
-  }

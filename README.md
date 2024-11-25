@@ -30,5 +30,9 @@ The development is planned to proceed as shown:
     - ng new booklet-app 
     
 ### Fron-end development - HTML and CSS 
-    - Setting Headers
-
+    - Setting Headers HTML and CSS
+        - Added Home iceo
+        - Added browse and add new buttons
+        - Added guest and user buttons
+    - Setting Footer HTML and CSS
+    - Add custom font - Parkinsans

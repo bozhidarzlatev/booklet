@@ -18,7 +18,7 @@ The development is planned to proceed as shown:
         [                      WHAT                   ]    [ Planned days ]    [  START DAY ]    [  END DAY  ]   [ Days needed ]  [ Status ]
 
     1 - Set Angular                                           0 days             30.11.2024        30.11.2024       0 days           Done
-    2 - Fron-end development -                                2-3 days
+    2 - Fron-end development -                                2-3 days           30.11.2024                                         Pending
         HTML and CSS set up and different views.              7 days max
     3 - Back-end -
         currently i don't have idea or solution.. ;)          10 days max

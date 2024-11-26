@@ -1,20 +1,20 @@
 <header class="header">
     <div class="left-section">
-        <button class="home-btn" href="/home">
+        <button class="home-btn" routerLink="/home">
             <!-- Custom icon (SVG or image) -->
-            <img class="home-icon" src="app-resourses/book-store-icon.svg" a/>
+            <img class="home-icon" src="app-resourses/book-store-icon.svg" />
             <div class="tooltip">Home</div>
         </button>
-        <div class="app-name">Booklet.com</div>
+        <div class="app-name">Booklet</div>
     </div>
     
     <div class="middle-section">
-        <button class="browse-btn" href="/all">
+        <button class="browse-btn" routerLink="/all">
             <div >Browse</div>
             <div class="tooltip">View all books </div>
         </button>
         @if (isLoggedIn) {
-        <button class="add-btn" href="/add">
+        <button class="add-btn" routerLink="/add">
             <div >Add</div>
             <div class="tooltip">Add new books...</div>
         </button>
@@ -25,11 +25,11 @@
     <div class="right-section">
         @if (!isLoggedIn) {
 
-            <button class="guest-btns" href="/login">
+            <button class="guest-btns" routerLink="/login">
                 <div>Login</div>
                 <div class="tooltip">Login now!</div>
             </button>
-            <button class="guest-btns" href="/register">
+            <button class="guest-btns" routerLink="/register">
                 <div>Rergister</div>
                 <div class="tooltip">Create new account</div>
             </button>
@@ -39,11 +39,11 @@
                 <div>Logout</div>
                 <div class="tooltip">See you soon ;)</div>
             </button>
-            <button class="user-btns" href="/profile">
-                <div>Profile</div>
+            <button class="user-btns" routerLink="/profile">
+                <img class="profile-icon" src="app-resourses/profile.svg" />
                 <div class="tooltip">View .... profile</div>
             </button>
-            <button class="user-btns" href="/cart">
+            <button class="user-btns" routerLink="/cart">
                 <div>Cart</div>
                 <div class="tooltip">Items you've added to cart</div>
             </button>

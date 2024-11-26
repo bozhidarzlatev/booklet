@@ -48,7 +48,8 @@ The development is planned to proceed as shown:
         - components
         - Routes
         - HTML & CSS
-    - Add login and Register view
+    - Add login and Register views
         - components
         - Routes
         - HTML & CSS
+    - Add dynamic tab title change using RxJS - Router, ActivatedRoute, Title

@@ -10,18 +10,18 @@ import { MainComponent } from './main/main.component';
 import { DetailsComponent } from './details/details.component';
 
 export const routes: Routes = [
-    {path: 'home', component: HomeComponent},
+    {path: 'home', component: HomeComponent, data: { title: 'Home Page' } },
     {path: '', redirectTo: '/home', pathMatch: 'full'},
-    {path: 'add', component: AddComponent},
+    {path: 'add', component: AddComponent, data: { title: 'Add new books' }},
     {path: 'all', children: [
-        {path: '', component: MainComponent},
-        {path: ':bookId', component: DetailsComponent},
+        {path: '', component: MainComponent, data: { title: 'All books' }},
+        {path: ':bookId', component: DetailsComponent,  data: { title: 'Details' }},
     ]} ,
-    {path: 'profile', component: ProfileComponent},
-    {path: 'cart', component: CartComponent},
-    {path: 'login', component: LoginComponent},
-    {path: 'register', component: RegisterComponent},
-    {path: '404', component: ErrorComponent},
+    {path: 'profile', component: ProfileComponent, data: { title: 'Profile page' }},
+    {path: 'cart', component: CartComponent, data: { title: 'Items in cart' }},
+    {path: 'login', component: LoginComponent, data: { title: 'Login - Nice to see you again' }},
+    {path: 'register', component: RegisterComponent, data: { title: 'Register and enjoy' }},
+    {path: '404', component: ErrorComponent, data: { title: 'Error - Not found' }},
     {path: '**', redirectTo: '/404', pathMatch: 'full'}
 
 ];

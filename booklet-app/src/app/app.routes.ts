@@ -17,8 +17,11 @@ export const routes: Routes = [
         {path: '', component: MainComponent, data: { title: 'All books' }},
         {path: ':bookId', component: DetailsComponent,  data: { title: 'Details' }},
     ]} ,
-    {path: 'profile', component: ProfileComponent, data: { title: 'Profile page' }},
-    {path: 'cart', component: CartComponent, data: { title: 'Items in cart' }},
+    {path: 'profile', children: [
+        {path: '', component: ProfileComponent, data: { title: 'Profile page' }},
+        {path: ':profileid/cart', component: CartComponent, data: { title: 'Items in cart' }},
+        
+    ]},
     {path: 'login', component: LoginComponent, data: { title: 'Login - Nice to see you again' }},
     {path: 'register', component: RegisterComponent, data: { title: 'Register and enjoy' }},
     {path: '404', component: ErrorComponent, data: { title: 'Error - Not found' }},

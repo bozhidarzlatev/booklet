@@ -57,3 +57,5 @@ The development is planned to proceed as shown:
         - components
         - Routes
         - HTML & CSS
+    - Add 404 page
+        - HTML & CSS

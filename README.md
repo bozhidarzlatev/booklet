@@ -41,3 +41,5 @@ The development is planned to proceed as shown:
     - Add profile and cart icons
     - Add homepage - i used ChatGPT for inspiration, because i have basic knowledge of CSS and HTML and I haven't been through this course in path
     - Add browse all page
+    - Add details view component
+    - Add details routes 

@@ -7,12 +7,16 @@ import { CartComponent } from './user/cart/cart.component';
 import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { MainComponent } from './main/main.component';
+import { DetailsComponent } from './details/details.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'add', component: AddComponent},
-    {path: 'all', component: MainComponent},
+    {path: 'all', children: [
+        {path: '', component: MainComponent},
+        {path: ':bookId', component: DetailsComponent},
+    ]} ,
     {path: 'profile', component: ProfileComponent},
     {path: 'cart', component: CartComponent},
     {path: 'login', component: LoginComponent},

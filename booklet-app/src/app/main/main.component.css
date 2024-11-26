@@ -36,6 +36,7 @@
 }
 
 .search-btn:hover{
+    cursor: pointer;
     background-color: rgb(248, 189, 138);
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgb(248, 189, 138) 0px 8px 16px -8px;
 
@@ -51,6 +52,7 @@
 
 .search-bar:hover {
     font-weight: 700;
+   
 
 }
 
@@ -63,33 +65,11 @@
     grid-template-columns: 1fr 1fr 1fr ;
     column-gap: 15px;
     row-gap: 20px;
-    text-decoration: underline;
+  
     }
     
-    /* 
-.book-preview {
-    display: flex;
-    background-color: #f9f9f9;
-}
 
-.book-img {
-    position: relative;
-    margin: 10px;
-}
 
-.imgage{
-    /* height: 250px; */
-    object-fit: contain;
-}
-
-.book-details {
-    display: grid;
-    grid-template-columns: 50px 1fr;
-    width: 150px;
-    margin: 10px;
-    
-} 
-*/
 
 .books-grid {
 
@@ -106,6 +86,7 @@
 }
 
 .book-preview:hover {
+    cursor: pointer;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgb(248, 189, 138) 0px 8px 16px -8px;
 }
 
@@ -130,11 +111,30 @@
     justify-content: space-between; 
 }
 
-.book-details p {
-    margin: 5px 0; 
-    font-size: 16px;
-    color: #333;
+
+.title{
+    margin-top:  0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 20px;
+    margin-bottom: 6px;
 }
+
+.author,
+.genre,
+.year{
+    font-size:  12px;
+    color: rgb(117, 116, 116);
+    margin-bottom: 1px;
+
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
 
 
 @media (max-width: 768px) {

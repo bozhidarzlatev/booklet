@@ -38,3 +38,5 @@ The development is planned to proceed as shown:
     - Add custom font - Parkinsans
     - Setting routes - app.routes.ts
     - CSS fixes
+    - Add profile and cart icons
+    - Add homepage - i used ChatGPT for inspiration, because i have basic knowledge of CSS and HTML and I haven't been through this course in path

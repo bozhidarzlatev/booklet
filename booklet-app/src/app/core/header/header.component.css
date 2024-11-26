@@ -28,12 +28,13 @@
 .header:hover {
     height: 120px;
     border-radius: 60px;
-}
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;}
 
 
 
 .home-icon,
-.profile-icon {
+.profile-icon,
+.cart-icon {
     height: 30px;
     width: fit-content;
 }
@@ -59,7 +60,8 @@
 
 
 .header:hover .home-icon,
-.header:hover .profile-icon{
+.header:hover .profile-icon,
+.header:hover .cart-icon{
     height: 60px;
     width: 60px;
 } 

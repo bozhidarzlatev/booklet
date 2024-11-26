@@ -48,3 +48,7 @@ The development is planned to proceed as shown:
         - components
         - Routes
         - HTML & CSS
+    - Add login and Register view
+        - components
+        - Routes
+        - HTML & CSS

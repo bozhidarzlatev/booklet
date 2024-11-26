@@ -53,3 +53,7 @@ The development is planned to proceed as shown:
         - Routes
         - HTML & CSS
     - Add dynamic tab title change using RxJS - Router, ActivatedRoute, Title
+    - Add Profile page view
+        - components
+        - Routes
+        - HTML & CSS

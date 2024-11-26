@@ -28,7 +28,8 @@
 .header:hover {
     height: 120px;
     border-radius: 60px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;}
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
 
 
 
@@ -145,8 +146,8 @@
     border-radius: 26px;
     font-size: 18px; 
     bottom: -40px;
-    left: 50%;     /* Center the tooltip horizontally */
-    transform: translateX(-50%); /* Adjust tooltip to perfectly center horizontally */
+    left: 50%;     
+    transform: translateX(-50%); 
     opacity: 0;
     pointer-events: none;
     white-space: nowrap; 

@@ -43,3 +43,4 @@ The development is planned to proceed as shown:
     - Add browse all page
     - Add details view component
     - Add details routes 
+    - Add details view HTML and CSS

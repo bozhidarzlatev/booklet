@@ -15,14 +15,14 @@ My project is about an online bookstore - booklet, where there should be functio
 
 The development is planned to proceed as shown:
 
-        [                      WHAT                   ]    [ Planned days ]    [  START DAY ]    [  END DAY  ]   [ Days needed ]  [ Status ]
+        [                      WHAT                ]    [ Planned days ]  [  START DAY ]  [  END DAY  ]   [ Days needed ]  [ Status ]  [ Comments ]
 
-    1 - Set Angular                                           0 days             30.11.2024        30.11.2024       0 days           Done
-    2 - Fron-end development -                                2-3 days           30.11.2024                                         In Progress
-        HTML and CSS set up and different views.              7 days max
-    3 - Back-end -
-        currently i don't have idea or solution.. ;)          10 days max
-    4 - Implementing Angular features.                                             
+    1 - Set Angular                                       0 days            30.11.2024      30.11.2024       0 days           Done
+    2 - Fron-end development -                            2-3 days          30.11.2024      31.11.2024       1 day            Dobe       Core structure is done 
+        HTML and CSS set up and different views.                                                                                         Further development on demand   
+    3 - Back-end -                                        7 days max
+        currently i don't have idea or solution.. ;)         
+    4 - Implementing Angular features.                    10 days max                     
 
 
 

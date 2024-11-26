@@ -1,1 +1,57 @@
-<p>add works!</p>
+<div class="add-book-container">
+    <h1>Add a New Book</h1>
+    <form class="add-book-form">
+
+         <!-- SHould implement error handling -->
+        <div class="form-group">
+            <label for="book-image">Upload Book Image:</label>
+            <input type="text" id="book-image" placeholder="Enter book image url" required>
+
+        </div>
+
+        <div class="form-group">
+            <label for="book-title">Book Title:</label>
+            <input type="text" id="book-title" placeholder="Enter book title" required>
+        </div>
+
+        <div class="form-group">
+            <label for="book-author">Author:</label>
+            <input type="text" id="book-author" placeholder="Enter author name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="book-genre">Genre:</label>
+            <input type="text" id="book-genre" placeholder="Enter genre" required>
+        </div>
+
+        <div class="form-group">
+            <label for="book-year">Published Year:</label>
+            <input type="number" id="book-year" placeholder="Enter published year" required>
+        </div>
+
+        <div class="form-group">
+            <label for="book-rating">Rating:</label>
+            <input type="number" id="book-rating" placeholder="e.g., 4/5" required>
+        </div>
+
+        <div class="form-group">
+            <label for="book-price">Price (in lv.):</label>
+            <input type="number" id="book-price" placeholder="Enter price" required>
+        </div>
+
+        <div class="form-group">
+            <label for="book-description">Description:</label>
+            <textarea id="book-description" placeholder="Enter book description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="book-distributor">Distributor:</label>
+            <input type="text" id="book-distributor" placeholder="Enter distributor name">
+        </div>
+
+
+        <div class="form-actions">
+            <button type="submit" class="add-book-btn">Add Book</button>
+        </div>
+    </form>
+</div>

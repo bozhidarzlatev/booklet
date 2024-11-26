@@ -44,3 +44,7 @@ The development is planned to proceed as shown:
     - Add details view component
     - Add details routes 
     - Add details view HTML and CSS
+    - Add add books view - again i used ChatGpt for inspiratin. 
+        - components
+        - Routes
+        - HTML & CSS

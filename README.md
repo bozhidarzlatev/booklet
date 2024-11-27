@@ -17,8 +17,8 @@ The development is planned to proceed as shown:
 
         [                      WHAT                ]    [ Planned days ]  [  START DAY ]  [  END DAY  ]   [ Days needed ]  [ Status ]  [ Comments ]
 
-    1 - Set Angular                                       0 days            30.11.2024      30.11.2024       0 days           Done
-    2 - Fron-end development -                            2-3 days          30.11.2024      31.11.2024       1 day            Dobe       Core structure is done 
+    1 - Set Angular                                       0 days            25.11.2024      25.11.2024       0 days           Done
+    2 - Fron-end development -                            2-3 days          25.11.2024      26.11.2024       1 day            Dobe       Core structure is done 
         HTML and CSS set up and different views.                                                                                         Further development on demand   
     3 - Back-end -                                        7 days max
         currently i don't have idea or solution.. ;)         

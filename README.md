@@ -65,3 +65,4 @@ The development is planned to proceed as shown:
         -npm init
         -npm i - express mongoose bcrypt cookie-parser jsonwebtoken dotenv / --save-d nodemon
         -setting express.js
+        -setting mongodb

@@ -20,9 +20,9 @@ The development is planned to proceed as shown:
     1 - Set Angular                                       0 days            25.11.2024      25.11.2024       0 days           Done
     2 - Fron-end development -                            2-3 days          25.11.2024      26.11.2024       1 day            Dobe       Core structure is done 
         HTML and CSS set up and different views.                                                                                         Further development on demand   
-    3 - Back-end -                                        7 days max
+    3 - Back-end -                                        7 days max        02.12.2024  
         currently i don't have idea or solution.. ;)         
-    4 - Implementing Angular features.                    10 days max                     
+    4 - Implementing Angular features.                    10 days max       02.12.2024              
 
 
 
@@ -68,4 +68,5 @@ The development is planned to proceed as shown:
         -setting mongodb
             -added User model
         -added authentication controller and sercvice
-        -added registration functionality
+        -added registration functionality    - ######## Needs refinements and error handling!!!
+        

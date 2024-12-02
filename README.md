@@ -59,3 +59,9 @@ The development is planned to proceed as shown:
         - HTML & CSS
     - Add 404 page
         - HTML & CSS
+
+### Phase II - implementing Back-end and Angular features.
+    - Create rest-api folde
+        -npm init
+        -npm i - express mongoose bcrypt cookie-parser jsonwebtoken dotenv / --save-d nodemon
+        -setting express.js

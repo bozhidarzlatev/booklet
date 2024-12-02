@@ -1,34 +1,65 @@
 <div class="auth-container">
-    <div id="register-form" class="form-section">
+    <form id="register-form" class="form-section" [formGroup]="form" (ngSubmit)="register()">
         <h1>Register</h1>
-        <form>
-            <div class="form-group">
-                <label for="register-username">Username:</label>
-                <input type="text" id="register-username" placeholder="Enter your username" required>
-            </div>
 
-            <div class="form-group">
-                <label for="register-profile-picture">Profile Picture URL:</label>
-                <input type="url" id="register-profile-picture" placeholder="Enter profile picture URL" required>
-            </div>
+        <div class="form-group">
+            <label for="register-username">Username:</label>
+            <input 
+                type="text" 
+                id="register-username" 
+                placeholder="Enter your username" 
+                formControlName="username" 
+                required>
+        </div>
 
-            <div class="form-group">
-                <label for="register-password">Password:</label>
-                <input type="password" id="register-password" placeholder="Enter your password" required>
-            </div>
+        <div class="form-group">
+            <label for="register-email">Email:</label>
+            <input 
+                type="email" 
+                id="register-email" 
+                placeholder="Enter your email" 
+                formControlName="email" 
+                required>
+        </div>            
 
-            <div class="form-group">
-                <label for="register-repassword">Re-enter Password:</label>
-                <input type="password" id="register-repassword" placeholder="Re-enter your password" required>
-            </div>
+        <div class="form-group">
+            <label for="register-profile-picture">Profile Picture URL:</label>
+            <input 
+                type="url" 
+                id="register-profile-picture" 
+                placeholder="Enter profile picture URL" 
+                formControlName="profileImg" 
+                required>
+        </div>
 
-            <div class="form-actions">
-                <button type="submit" class="auth-btn">Register</button>
-            </div>
+        <div formGroupName="passGroup">
+        <div class="form-group">
+            <label for="register-password">Password:</label>
+            <input 
+                type="password" 
+                id="register-password" 
+                placeholder="Enter your password" 
+                formControlName="password" 
+                required>
+        </div>
 
-            <p class="form-link">
-                Already have an account? <a routerLink="/login">Login here</a>.
-            </p>
-        </form>
-    </div>
+        <div class="form-group">
+            <label for="register-repassword">Re-enter Password:</label>
+            <input 
+                type="password" 
+                id="register-repassword" 
+                placeholder="Re-enter your password" 
+                formControlName="rePassword" 
+                required>
+        </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="auth-btn">Register</button>
+        </div>
+
+        <p class="form-link">
+            Already have an account? <a routerLink="/login">Login here</a>.
+        </p>
+    </form>
 </div>

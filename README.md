@@ -68,3 +68,4 @@ The development is planned to proceed as shown:
         -setting mongodb
             -added User model
         -added authentication controller and sercvice
+        -added registration functionality

@@ -36,7 +36,7 @@ get isLogged(): boolean {
 
   logout() {
     return this.http
-      .post('/api/logout', {})
+      .get('/api/auth/logout', {})
       .pipe(tap((user) => this.user$$.next(null)))
   }
 

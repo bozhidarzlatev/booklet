@@ -29,4 +29,4 @@ mongoose.connect(mongoUrl, {dbName: 'booklet'})
     .catch((err) => console.log(`DB failed to connect: ${err}`));
 
 
-app.listen(PORT, () => console.log(`Server is runnig on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server is runnig on http://localhost:${PORT}`)); 

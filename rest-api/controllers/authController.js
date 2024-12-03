@@ -42,11 +42,11 @@ authController.post('/register',  async (req, res) => {
 // })
 
 
-// // Logout page - GET
-// authController.get('/logout',  isAuth, (req, res) => {
-//     res.clearCookie(AUTH_COOKIE_NAME);
-//     res.redirect('/');
-// })
+// Logout page - GET
+authController.get('/logout',  (req, res) => {
+    res.clearCookie(AUTH_COOKIE_NAME);
+    res.status(204).json({ message: 'Logout successful!' });
+})
 
 
 export default authController;

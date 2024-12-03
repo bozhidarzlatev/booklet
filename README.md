@@ -70,3 +70,4 @@ The development is planned to proceed as shown:
         -added authentication controller and sercvice
         -added registration functionality    - ######## Needs refinements and error handling!!!
         -added logout funcionality - rest-api and Angular
+        -added login funcionality - rest-api and Angular

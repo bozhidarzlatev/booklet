@@ -25,21 +25,19 @@ authController.post('/register',  async (req, res) => {
 
 
 
-
-
 // Login page - POST
-// authController.post('/login', isGuest, async (req, res) => {
-//     const { username, password } = req.body;
+authController.post('/login', async (req, res) => {
+    const { username, password } = req.body;
     
-//     try {
-//         const token =  await authService.login( username, password);
-//         res.cookie(AUTH_COOKIE_NAME, token, {httpOnly: true});
-//         res.redirect('/')
-//     } catch (err) {
-//         const error = getErrorMessage(err)
-//         res.render('auth/login', {title: 'Login' , username, error})
-//     }
-// })
+    try {
+        const token =  await authService.login( username, password);
+        res.cookie(AUTH_COOKIE_NAME, token, {httpOnly: true});
+        res.status(200).json({ message: 'Registration successful!' });
+    } catch (err) {
+        const error = getErrorMessage(err);
+        res.status(401).json({ error });
+    }
+})
 
 
 // Logout page - GET

@@ -4,6 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { matchPasswordsValidator } from '../../utils/match-password.validator';
 import { UserService } from '../user.service';
 import { HttpClient } from '@angular/common/http';
+import { log } from 'console';
 // import { UserService } from '../user.service';
 
 @Component({
@@ -32,8 +33,7 @@ export class RegisterComponent {
 
 
     register() {
-      console.log('clicked');
-
+   
         if (this.form.invalid) {
           return
         }
@@ -44,9 +44,8 @@ export class RegisterComponent {
           profileImg, 
           passGroup: {password, rePassword} = {},
       } = this.form.value;
+     
 
-      console.log({username, email, profileImg, password, rePassword});
-      
       this.userService.register(username!, email!, profileImg!, password!, rePassword!).subscribe(()=>{
         this.router.navigate(['/'])
       })

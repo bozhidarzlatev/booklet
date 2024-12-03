@@ -25,10 +25,10 @@ get isLogged(): boolean {
     });
   }
 
-  loging(email: string, password: string) {
+  login(username: string, password: string) {
 
     return this.http
-    .post<UserForAuth>('/api/login', {email, password})
+    .post<UserForAuth>('/api/auth/login', {username, password})
     .pipe(tap((user) => this.user$$.next(user)))
     
     // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user) );

@@ -41,6 +41,13 @@ async function login ( username, password) {
 
 }
 
+async function findProfile({username}) {
+   const user = await User.findOne({username});
+   const {_id, usernamem, email} = user
+   return {_id, username};
+   
+}
+
 async function generateToken(user) {
     const payload = {
         _id: user._id,
@@ -55,6 +62,7 @@ async function generateToken(user) {
 const authService = {
 register,
 login,
+findProfile,
 generateToken
 
 }

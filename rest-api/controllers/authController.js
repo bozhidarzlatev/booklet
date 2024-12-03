@@ -30,9 +30,13 @@ authController.post('/login', async (req, res) => {
     const { username, password } = req.body;
     
     try {
+
         const token =  await authService.login( username, password);
+        const user = await authService.findProfile({username})
+       
+        
         res.cookie(AUTH_COOKIE_NAME, token, {httpOnly: true});
-        res.status(200).json({ message: 'Registration successful!' });
+        res.status(200).json({ message: 'Registration successful!' , user: user});
     } catch (err) {
         const error = getErrorMessage(err);
         res.status(401).json({ error });
@@ -45,6 +49,9 @@ authController.get('/logout',  (req, res) => {
     res.clearCookie(AUTH_COOKIE_NAME);
     res.status(204).json({ message: 'Logout successful!' });
 })
+
+
+
 
 
 export default authController;

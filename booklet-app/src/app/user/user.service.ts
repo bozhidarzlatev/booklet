@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { UserForAuth } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, tap } from 'rxjs';
+import { log } from 'node:console';
 // import { Theme } from '../types/theme';
 
 @Injectable({
@@ -29,15 +30,25 @@ get isLogged(): boolean {
 
     return this.http
     .post<UserForAuth>('/api/auth/login', {username, password})
-    .pipe(tap((user) => this.user$$.next(user)))
-    
-    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user) );
+    .pipe(tap((user) => {
+      this.user$$.next(user);   
+      console.log(username);
+      
+      localStorage.setItem(this.USER_KEY, JSON.stringify({user: username}) );
+
+    })
+  
+    );    
   }
 
   logout() {
     return this.http
       .get('/api/auth/logout', {})
-      .pipe(tap((user) => this.user$$.next(null)))
+      .pipe(tap((user) => {
+        this.user$$.next(null);
+        localStorage.removeItem(this.USER_KEY)
+      })
+    )
   }
 
 
@@ -45,7 +56,11 @@ get isLogged(): boolean {
     
     return this.http
     .post<UserForAuth>('/api/auth/register', {username, email, profileImg, password, rePassword})
-    .pipe(tap((user) => this.user$$.next(user)))
+    .pipe(tap((user) => {
+      this.user$$.next(user);
+      localStorage.setItem(this.USER_KEY, JSON.stringify({user: username}) );
+  })
+  );
   }
 
 

@@ -27,7 +27,6 @@ export class LoginComponent {
     }
 
     const {username, password} = this.form.value;
-    console.log(`Anglr: `, {username, password} );
     
     this.userSErvice.login(username!, password!).subscribe(()=> {
       this.router.navigate(['/'])

@@ -20,4 +20,8 @@ export class ApiService {
     return this.http.get<Book[]>('/api/books/all')
   }
 
+  getSingleBook(bookId: string) {
+    return this.http.get<Book>(`/api/books/details/${bookId}`)
+  }
+
 }

@@ -19,11 +19,19 @@ bookController.post('/add', async (req, res) =>{
     }
 });
 
-
 bookController.get('/all', async (req, res) => {
         const booksData = await bookService.allBooks().lean()
+        
         res.json(booksData)
 })
+
+bookController.get('/details/:bookId', async (req, res) => {  
+    const {bookId} = req.params    
+      
+    const bookDetails = await bookService.getOneBook(bookId).lean()
+    res.json(bookDetails)
+})
+
 
 export default bookController;
 

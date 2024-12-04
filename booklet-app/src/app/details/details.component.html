@@ -5,7 +5,7 @@
             <!-- Book Image Section -->
             <div class="book-image-container">
                 <img 
-                    src="https://i5.walmartimages.com/asr/88e4b578-7715-40ac-b952-3adb8df8d7ad.7bab45261fb1cd5e5e96801642f4bdbe.jpeg" 
+                    src="{{book.imageUrl}}" 
                     alt="Harry Potter and Something" 
                     class="book-image-large"
                 />
@@ -13,11 +13,11 @@
     
             <!-- Book Information Section -->
             <div class="book-info">
-                <h1 class="book-title">Harry Potter and Something</h1>
-                <p class="book-author"><strong>Author:</strong> J.K. Rowling</p>
-                <p class="book-genre"><strong>Genre:</strong> Magicals</p>
-                <p class="book-year"><strong>Published Year:</strong> 2003</p>
-                <p class="book-rating"><strong>Reting:</strong> 5/5</p>
+                <h1 class="book-title">{{book.title}}</h1>
+                <p class="book-author"><strong>Author:</strong> {{book.author}}</p>
+                <p class="book-genre"><strong>Genre:</strong> {{book.genre}}</p>
+                <p class="book-year"><strong>Published Year:</strong>   {{book.year}}</p>
+                <p class="book-rating"><strong>Reting:</strong>// TO DO</p>
                 
                 
                 
@@ -26,17 +26,15 @@
                 <div class="book-description">
                     <h2>Description</h2>
                     <p>
-                        Dive into the magical world of Harry Potter with this thrilling book in the series. 
-                        Explore the adventures, mysteries, and friendships that have captured the hearts of readers worldwide. 
-                        Perfect for fans of fantasy and magic.
+                        {{book.description}}
                     </p>
                 </div>
-                <p class="book-distributor"><strong>Distributor:</strong> User uploaded</p>
+                <p class="book-distributor"><strong>Distributor:</strong> // TO DO</p>
             </div>
             
             <!-- Interactive Buttons Section -->
             <div class="book-actions">
-                <p class="book-price"><strong>Price:</strong> 20,99 lv.</p>
+                <p class="book-price"><strong>Price:</strong> {{book.price}} lv.</p>
                 <button class="add-to-cart-btn">Add to Cart</button>
                 <button class="review-btn">Add review</button>
                 <button class="review-btn">Edit movie</button>

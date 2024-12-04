@@ -18,5 +18,6 @@ export interface BookToAdd {
     year: number;
     price: number;
     description: string;
-    id: string;
+    _id: string;
+    owner: string;
   }

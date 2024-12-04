@@ -31,7 +31,7 @@ const bookSchema = new Schema({
         type: Types.ObjectId,
         ref: 'User'
     }
-});
+}, { timestamps: { createdAt: 'created_at' } });
 
 const Book = model('Book', bookSchema);
 

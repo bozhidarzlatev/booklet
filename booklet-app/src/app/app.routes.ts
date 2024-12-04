@@ -15,7 +15,7 @@ export const routes: Routes = [
     {path: 'add', component: AddComponent, data: { title: 'Add new books' }},
     {path: 'all', children: [
         {path: '', component: MainComponent, data: { title: 'All books' }},
-        {path: ':bookId', component: DetailsComponent,  data: { title: 'Details' }},
+        {path: 'details/:bookId', component: DetailsComponent,  data: { title: 'Details' }},
     ]} ,
     {path: 'profile', children: [
         {path: '', component: ProfileComponent, data: { title: 'Profile page' }},

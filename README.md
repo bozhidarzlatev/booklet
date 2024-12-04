@@ -73,3 +73,4 @@ The development is planned to proceed as shown:
         -added login funcionality - rest-api and Angular
         -added add new book funcionality - rest-api and Angular
         -added browse all functionality -rest-api and Angular
+        -added details functionality -rest-api and Angular

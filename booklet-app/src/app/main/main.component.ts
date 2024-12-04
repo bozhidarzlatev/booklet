@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Book, BookToAdd } from '../types/book';
 import { ApiService } from '../api.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-main',
@@ -17,6 +18,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.allBooks().subscribe( books => {
+       
         this.books = books
     })
   }

@@ -19,7 +19,6 @@ user: UserForAuth | null = null;
 get isLogged(): boolean {
   return !!this.user;
 }
-
   constructor(private http: HttpClient) {
     this.user$.subscribe((user) => {
       this.user= user
@@ -27,7 +26,6 @@ get isLogged(): boolean {
   }
 
   login(username: string, password: string) {
-
     return this.http
     .post<UserForAuth>('/api/auth/login', {username, password})
     .pipe(tap((user) => {
@@ -38,8 +36,7 @@ get isLogged(): boolean {
                  
       localStorage.setItem(this.USER_KEY, JSON.stringify(data) );
 
-    })
-  
+      })
     );    
   }
 
@@ -60,7 +57,11 @@ get isLogged(): boolean {
     .post<UserForAuth>('/api/auth/register', {username, email, profileImg, password, rePassword})
     .pipe(tap((user) => {
       this.user$$.next(user);
-      localStorage.setItem(this.USER_KEY, JSON.stringify({user: username}) );
+
+      const payload = JSON.stringify(user);
+      const data = JSON.parse(payload).user;
+
+      localStorage.setItem(this.USER_KEY, JSON.stringify(data)  );
   })
   );
   }

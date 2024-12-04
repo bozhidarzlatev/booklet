@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { title } from 'process';
-import {  apiService } from '../api.service';
+import {  ApiService } from '../api.service';
 import { log } from 'console';
 
 @Component({
@@ -14,7 +14,7 @@ import { log } from 'console';
 })
 export class AddComponent {
 
-    constructor ( private apiService: apiService, private router: Router) {}
+    constructor ( private apiService: ApiService, private router: Router) {}
 
   addForm = new FormGroup({
     imageUrl: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -49,7 +49,7 @@ export class AddComponent {
     const owner =  localStorage.getItem(`[user]`)?.split('"')[3];   
    
       this.apiService.addNewBook(imageUrl!, title!, author!, genre!  ,yearNum!, priceNum!,  description!, owner! ).subscribe(() => {
-        this.router.navigate(['/'])
+        this.router.navigate(['/all'])
       })
 
       

@@ -5,8 +5,16 @@ function  create(bookData) {
     return Book.create({...bookData});
 };
 
+function allBooks(filter = {}) {
+    const query = Book.find();
+
+    return query;
+
+}
+
 const bookService = {
-    create
+    create,
+    allBooks
 }
 
 export default bookService;

@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BookToAdd } from './types/book';
+import { Book, BookToAdd } from './types/book';
 
 @Injectable({
   providedIn: 'root'
 })
-export class apiService {
+export class ApiService {
 
   constructor(private http: HttpClient) {}
 
@@ -14,6 +14,10 @@ export class apiService {
 
     return this.http.post<BookToAdd>('/api/books/add', payload)
     
+  }
+
+  allBooks() {
+    return this.http.get<Book[]>('/api/books/all')
   }
 
 }

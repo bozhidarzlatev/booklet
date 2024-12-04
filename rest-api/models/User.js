@@ -26,7 +26,7 @@ const userSchema = new Schema({
     //     type: ObjectId,
     //     ref: "Book"
     // }]
-});
+}, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.pre('save' , async function () {
     const hash = await bcrypt.hash(this.password, SALT_ROUNDS);

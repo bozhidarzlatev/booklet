@@ -11,85 +11,23 @@
 
 
 <section class="books-grid">
-    <div class="book-preview" routerLink="/all/hgasd987asdsag">
-        <div class="book-img">
-            <img class="imgage" src="https://play-lh.googleusercontent.com/xo2HfLoAszntYndTjrUhZXqa7xCmeSkSXxcsPPeQx3-cRrzYSGmbjSwKO2F7o-RWuJhy" >
-        </div>
-        <div class="book-details">
-            <p class="title">Harry Potter and somethig</p>
-            <div>
-                <p class="author">J.k.Rowling</p>
-                <p class="genre">Magicals</p>
-                <p class="year">2003</p>
-            </div>
-            <p class="price">Price: 20,99 lv.</p>
-        </div>
-        <div></div>
-    </div>
+    @for (book of books; track $index) {
 
-    <div class="book-preview" routerLink="/all/hgasd987asdsag">
-        <div class="book-img">
-            <img class="imgage" src="https://play-lh.googleusercontent.com/xo2HfLoAszntYndTjrUhZXqa7xCmeSkSXxcsPPeQx3-cRrzYSGmbjSwKO2F7o-RWuJhy" >
-        </div>
-        <div class="book-details">
-            <p class="title">Harry Potter and somethig</p>
-            <div>
-                <p class="author">J.k.Rowling</p>
-                <p class="genre">Magicals</p>
-                <p class="year">2003</p>
+        <div class="book-preview" routerLink="/all/hgasd987asdsag">
+            <div class="book-img">
+                <img class="imgage" src="{{book.imageUrl}}" >
             </div>
-            <p class="price">Price: 20,99 lv.</p>
-        </div>
-        <div></div>
-    </div>
-
-    <div class="book-preview" routerLink="/all/hgasd987asdsag">
-        <div class="book-img">
-            <img class="imgage" src="https://play-lh.googleusercontent.com/xo2HfLoAszntYndTjrUhZXqa7xCmeSkSXxcsPPeQx3-cRrzYSGmbjSwKO2F7o-RWuJhy" >
-        </div>
-        <div class="book-details">
-            <p class="title">Harry Potter and somethig</p>
-            <div>
-                <p class="author">J.k.Rowling</p>
-                <p class="genre">Magicals</p>
-                <p class="year">2003</p>
+            <div class="book-details">
+                <p class="title">{{book.title}}</p>
+                <div>
+                    <p class="author">{{book.author}}</p>
+                    <p class="genre">{{book.genre}}</p>
+                    <p class="year">{{book.year}}</p>
+                </div>
+                <p class="price">Price: {{book.price}}</p>
             </div>
-            <p class="price">Price: 20,99 lv.</p>
+            <div></div>
         </div>
-        <div></div>
-    </div>
-
-    <div class="book-preview" routerLink="/all/hgasd987asdsag">
-        <div class="book-img">
-            <img class="imgage" src="https://play-lh.googleusercontent.com/xo2HfLoAszntYndTjrUhZXqa7xCmeSkSXxcsPPeQx3-cRrzYSGmbjSwKO2F7o-RWuJhy" >
-        </div>
-        <div class="book-details">
-            <p class="title">Harry Potter and somethig</p>
-            <div>
-                <p class="author">J.k.Rowling</p>
-                <p class="genre">Magicals</p>
-                <p class="year">2003</p>
-            </div>
-            <p class="price">Price: 20,99 lv.</p>
-        </div>
-        <div></div>
-    </div>
-
-    <div class="book-preview" routerLink="/all/hgasd987asdsag">
-        <div class="book-img">
-            <img class="imgage" src="https://play-lh.googleusercontent.com/xo2HfLoAszntYndTjrUhZXqa7xCmeSkSXxcsPPeQx3-cRrzYSGmbjSwKO2F7o-RWuJhy" >
-        </div>
-        <div class="book-details">
-            <p class="title">Harry Potter and somethig</p>
-            <div>
-                <p class="author">J.k.Rowling</p>
-                <p class="genre">Magicals</p>
-                <p class="year">2003</p>
-            </div>
-            <p class="price">Price: 20,99 lv.</p>
-        </div>
-        <div></div>
-    </div>
-
+    }
     
 </section>

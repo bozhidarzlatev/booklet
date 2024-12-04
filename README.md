@@ -71,3 +71,4 @@ The development is planned to proceed as shown:
         -added registration functionality    - ######## Needs refinements and error handling!!!
         -added logout funcionality - rest-api and Angular
         -added login funcionality - rest-api and Angular
+        -added add new book funcionality - rest-api and Angular

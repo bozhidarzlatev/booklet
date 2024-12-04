@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { AddService } from './add.service';
-import { log } from 'console';
 import { title } from 'process';
-import {  ApiServise } from '../api.service';
+import {  apiService } from '../api.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-add',
@@ -15,7 +14,7 @@ import {  ApiServise } from '../api.service';
 })
 export class AddComponent {
 
-    constructor ( private apiServive: ApiServise, private router: Router) {}
+    constructor ( private apiService: apiService, private router: Router) {}
 
   addForm = new FormGroup({
     imageUrl: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -23,13 +22,12 @@ export class AddComponent {
     author: new FormControl('', [Validators.required, Validators.minLength(5)]),
     genre: new FormControl('', [Validators.required, Validators.minLength(5)]),
     year: new FormControl('', [Validators.required, Validators.min(1900)]),
-    price: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    price: new FormControl('', [Validators.required, Validators.min(0)]),
     description: new FormControl('', [Validators.required, Validators.minLength(5)]),
 
   })
 
   addBook() {
-    console.log(this.addForm.value);
     if (this.addForm.invalid) {
       return
     }
@@ -44,8 +42,16 @@ export class AddComponent {
       description,
     } = this.addForm.value
 
-      this.apiServive.addNewBook(imageUrl!, title!, author!, genre! , year! , price, description )
-        
+    const yearNum = Number(year)
+    const priceNum = Number(price)
+
+    
+    const owner =  localStorage.getItem(`[user]`)?.split('"')[3];   
+   
+      this.apiService.addNewBook(imageUrl!, title!, author!, genre!  ,yearNum!, priceNum!,  description!, owner! ).subscribe(() => {
+        this.router.navigate(['/'])
+      })
+
       
 
   }

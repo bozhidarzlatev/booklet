@@ -4,8 +4,11 @@ const profileControler = Router();
 
 
 // Home Page - GET
-profileControler.get('/profile', (req, res) =>{
-    res.send('sadsads')
+profileControler.get('/profile', async (req, res) =>{
+    const bookData = req.body
+    console.log(bookData);
+    
+    res.send(`it worsk`)
 });
 
 export default profileControler;

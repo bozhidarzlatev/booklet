@@ -21,7 +21,11 @@ const userSchema = new Schema({
         required: [true, 'Password is required!'],
         minLength: [4, 'Password should be at least 4 characters']
 
-    }
+    },
+    // books: [{
+    //     type: ObjectId,
+    //     ref: "Book"
+    // }]
 });
 
 userSchema.pre('save' , async function () {

@@ -1,4 +1,4 @@
-export interface UserForAuth {
+export interface BookToAdd {
     imageUrl: string;
     title: string;
     author: string;
@@ -6,4 +6,5 @@ export interface UserForAuth {
     year: number;
     price: number;
     description: string;
+    id: string;
   }

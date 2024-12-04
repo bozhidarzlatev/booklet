@@ -26,6 +26,7 @@ async function register (username, email,profileImg, password, rePassword) {
 
 async function login ( username, password) {
     const user = await User.findOne({username})
+    console.log(`user: `, user);
     
     if(!user) {
         throw new Error("Invalid credentials");   
@@ -44,6 +45,7 @@ async function login ( username, password) {
 async function findProfile({username}) {
    const user = await User.findOne({username});
    const {_id, usernamem, email} = user
+   
    return {_id, username};
    
 }

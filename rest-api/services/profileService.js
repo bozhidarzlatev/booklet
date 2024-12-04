@@ -1,6 +1,4 @@
-import jwt from "../lib/jwt.js";
 import User from "../models/User.js";
-import bcrypt from 'bcrypt';
 
 async function register (username, email,profileImg, password, rePassword) {
     const user = await User.findOne({ $or: [{ email } , { username }] });

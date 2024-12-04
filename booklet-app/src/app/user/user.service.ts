@@ -32,9 +32,11 @@ get isLogged(): boolean {
     .post<UserForAuth>('/api/auth/login', {username, password})
     .pipe(tap((user) => {
       this.user$$.next(user);   
-      console.log(username);
       
-      localStorage.setItem(this.USER_KEY, JSON.stringify({user: username}) );
+      const payload = JSON.stringify(user);
+      const data = JSON.parse(payload).user
+                 
+      localStorage.setItem(this.USER_KEY, JSON.stringify(data) );
 
     })
   

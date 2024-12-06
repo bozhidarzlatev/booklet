@@ -13,14 +13,22 @@ import { log } from 'console';
 })
 export class MainComponent implements OnInit {
   books: Book[] = [];
+  
+  get isBooksEmpty():boolean {
+    return this.books.length === 0;
+  }
 
     constructor(private apiService: ApiService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+
+        
     this.apiService.allBooks().subscribe( books => {
+       console.log(books);
        
         this.books = books
     })
+
   }
 
 

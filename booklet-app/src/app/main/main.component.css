@@ -133,9 +133,40 @@
     font-size: 16px;
     font-weight: 600;
 }
+.main-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
 
+.add-link {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
 
+.add-link a {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    text-decoration: none;
+    border: 1px solid #4CAF50;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
 
+.add-link a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.add-link a:active {
+    background-color: #65b6e6;
+    color: white;
+}
 
 @media (max-width: 768px) {
     .book-preview {

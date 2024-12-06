@@ -10,6 +10,24 @@
 </section>
 
 
+@if (isBooksEmpty) {
+    <section>
+        <div>
+            <h2 class="main-title">No books uploaded yet!</h2>
+            <div class="add-link">
+                <a routerLink="/add">Add</a>
+            </div>
+        </div>
+    </section>
+
+
+} @else {
+    <section>
+        <div>
+            <h2 class="main-title">View all books!</h2>
+        </div>
+    </section>
+    
 <section class="books-grid">
     @for (book of books; track $index) {
 
@@ -31,3 +49,4 @@
     }
     
 </section>
+}

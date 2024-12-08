@@ -13,14 +13,10 @@ export class HeaderComponent  {
   constructor(private userService: UserService, private router: Router) {}
 
     get isLoggedIn(): boolean {
-      if (typeof localStorage !== 'undefined') {
-        const user = localStorage.getItem('[user]');
-
-        return user ? !!JSON.parse(user) : false;
-      }
-      return false; 
+      return this.userService.isLogged
     }
     
+  
   
 
   logout(){

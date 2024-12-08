@@ -26,7 +26,7 @@ async function register (username, email,profileImg, password, rePassword) {
 
 async function login ( username, password) {
     const user = await User.findOne({username})
-    
+
     if(!user) {
         throw new Error("Invalid credentials");   
     }
@@ -42,11 +42,28 @@ async function login ( username, password) {
 }
 
 async function findProfile({username}) {
-   const user = await User.findOne({username});
-   const {_id, usernamem, email} = user
+   const user = await User.findOne({username}, { password: 0, __v: 0 }).lean()
+
+   return user;
    
-   return {_id, username};
-   
+}
+
+async function getProfile(req) {
+    try {
+        const userData = req.cookies.authToken;
+
+        if (!userData) {
+            throw new Error('Authentication token is missing');
+        }
+
+        // Verify the token to make sure it's valid and has the correct signature.
+        const decoded = jwt.verify(userData, process.env.JWT_SECRET);
+
+        return decoded;
+    } catch (error) {
+        console.error('Error decoding token:', error.message);
+        return null; // or you could throw the error to be handled elsewhere
+    }
 }
 
 async function generateToken(user) {
@@ -64,7 +81,8 @@ const authService = {
 register,
 login,
 findProfile,
-generateToken
+generateToken,
+getProfile
 
 }
 

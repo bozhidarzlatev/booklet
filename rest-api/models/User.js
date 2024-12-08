@@ -1,4 +1,4 @@
-import { Schema , model } from "mongoose";
+import { Schema , Types, model } from "mongoose";
 import bcrypt from 'bcrypt';
 
 const SALT_ROUNDS = 10;
@@ -16,16 +16,21 @@ const userSchema = new Schema({
         minLength: [10, 'Email should be at least 10 characters']
 
     },
+    profileImg: {
+        type: String,
+        required: [true, 'imageUrl is required!'],
+        validate: [/^https?:\/\//, 'Invalid url']
+    },
     password: {
         type: String,
         required: [true, 'Password is required!'],
         minLength: [4, 'Password should be at least 4 characters']
 
     },
-    // books: [{
-    //     type: ObjectId,
-    //     ref: "Book"
-    // }]
+    books: [{
+        type: Types.ObjectId,
+        ref: "Book"
+    }]
 }, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.pre('save' , async function () {

@@ -1,15 +1,19 @@
 import { Router } from "express";
+import jwt from "jsonwebtoken"
 
-const profileControler = Router();
+const profileController = Router();
 
 
 // Home Page - GET
-profileControler.get('/profile', async (req, res) =>{
-    const bookData = req.body
-    console.log(bookData);
+profileController.get('/profile', async (req, res) =>{
+    const userData = req.cookies.authToken
+    const decode = jwt.verify(userData, process.env.JWT_SECRET)
+    const userId = JSON.parse(decode)
     
-    res.send(`it worsk`)
+    const profileData = await 
+
+    res.send(decode)
 });
 
-export default profileControler;
+export default profileController;
 

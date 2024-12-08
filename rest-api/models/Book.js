@@ -30,6 +30,10 @@ const bookSchema = new Schema({
     owner: {
         type: Types.ObjectId,
         ref: 'User'
+    },
+    ownerName: {
+        type: String,
+        ref: 'User'
     }
 }, { timestamps: { createdAt: 'created_at' } });
 

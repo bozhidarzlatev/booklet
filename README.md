@@ -75,3 +75,4 @@ The development is planned to proceed as shown:
         -added browse all functionality -rest-api and Angular
         -added details functionality -rest-api and Angular
         -added main view fixes
+        -added profile view 

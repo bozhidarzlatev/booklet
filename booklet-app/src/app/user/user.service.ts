@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { UserForAuth } from '../types/user';
+import { User, UserForAuth } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, tap } from 'rxjs';
 import { log } from 'node:console';
@@ -9,12 +9,12 @@ import { log } from 'node:console';
   providedIn: 'root'
 })
 export class UserService {
-private user$$ = new BehaviorSubject<UserForAuth | null>(null) 
+private user$$ = new BehaviorSubject<User | null>(null) 
 private user$ = this.user$$.asObservable();
 
 
 USER_KEY = '[user]';
-user: UserForAuth | null = null;
+user: User | null = null;
 
 get isLogged(): boolean {
   return !!this.user;
@@ -27,15 +27,16 @@ get isLogged(): boolean {
 
   login(username: string, password: string) {
     return this.http
-    .post<UserForAuth>('/api/auth/login', {username, password})
+    .post<User>('/api/auth/login', {username, password})
     .pipe(tap((user) => {
       this.user$$.next(user);   
       
       const payload = JSON.stringify(user);
       const data = JSON.parse(payload).user
-                 
-      localStorage.setItem(this.USER_KEY, JSON.stringify(data) );
 
+      
+      localStorage.setItem(this.USER_KEY, JSON.stringify(data) );
+      
       })
     );    
   }
@@ -54,7 +55,7 @@ get isLogged(): boolean {
   register(username: string, email: string, profileImg: string,  password: string, rePassword: string ) {
     
     return this.http
-    .post<UserForAuth>('/api/auth/register', {username, email, profileImg, password, rePassword})
+    .post<User>('/api/auth/register', {username, email, profileImg, password, rePassword})
     .pipe(tap((user) => {
       this.user$$.next(user);
 
@@ -68,7 +69,7 @@ get isLogged(): boolean {
 
 
   getProfile() {
-    return this.http.get<UserForAuth>('/api/users/profile')
+    return this.http.get<User>('/api/user/profile')
     .pipe(tap((user) => this.user$$.next(user)));
   }
 

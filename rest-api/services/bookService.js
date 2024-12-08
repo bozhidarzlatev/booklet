@@ -1,8 +1,9 @@
 import Book from "../models/Book.js";
 
 
-function  create(bookData) {
-    return Book.create({...bookData});
+function  create(bookData, userId, userName) {
+        
+    return Book.create({...bookData, owner: userId, ownerName: userName});
 };
 
 
@@ -14,7 +15,6 @@ function allBooks(filter = {}) {
 
 function getOneBook(bookId) {
     const book = Book.findById(bookId)
-    
     
     return book
 }

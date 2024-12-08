@@ -47,7 +47,16 @@ export class AddComponent {
 
     
     const owner =  localStorage.getItem(`[user]`)?.split('"')[3];   
-   
+    console.log({
+      imageUrl,
+      title,
+      author,
+      genre,
+      year,
+      price,
+      description,
+    });
+    
       this.apiService.addNewBook(imageUrl!, title!, author!, genre!  ,yearNum!, priceNum!,  description!, owner! ).subscribe(() => {
         this.router.navigate(['/all'])
       })

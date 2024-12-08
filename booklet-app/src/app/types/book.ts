@@ -20,4 +20,5 @@ export interface BookToAdd {
     description: string;
     _id: string;
     owner: string;
+    ownerName: string;
   }

@@ -8,6 +8,7 @@ import { RegisterComponent } from './user/register/register.component';
 import { LoginComponent } from './user/login/login.component';
 import { MainComponent } from './main/main.component';
 import { DetailsComponent } from './details/details.component';
+import { OrdersComponent } from './user/orders/orders.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, data: { title: 'Home Page' } },
@@ -19,7 +20,8 @@ export const routes: Routes = [
     ]} ,
     {path: 'profile', children: [
         {path: '', component: ProfileComponent, data: { title: 'Profile page' }},
-        {path: ':profileid/cart', component: CartComponent, data: { title: 'Items in cart' }},
+        {path: 'cart', component: CartComponent, data: { title: 'Items in cart' }},
+        {path: 'orders', component: OrdersComponent, data: { title: 'Your orders' }},
         
     ]},
     {path: 'login', component: LoginComponent, data: { title: 'Login - Nice to see you again' }},

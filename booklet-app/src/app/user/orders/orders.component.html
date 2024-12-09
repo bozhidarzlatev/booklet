@@ -1,0 +1,53 @@
+
+<section class="cart-container">
+    <h1>{{title}}</h1>
+    @if (orderItems.length>0) {
+        <ul class="cart-list">
+
+            @for (order of orderItems; track $index) {
+                    <div class="cart-item" >
+                        <div class="book-info" routerLink="/all}">
+                            <h2 class="book-title">{{order._id}}</h2>
+                            <div class="tooltip" >
+                                <img src="asdsa" />
+                            </div>
+                        </div>
+                        
+                        <div class="book-info" >
+                            <p class="book-author">Ordered at: {{order.created_at}}</p>
+                        </div>
+                        <p class="book-price">{{order.totalPrice}}</p>
+                    </div>
+
+                    @for (item of order.orderData; track $index) {
+                        <div class="cart-item" >
+                            <div class="book-info" routerLink="/all}">
+                                <h2 class="book-title">{{item.title}}</h2>
+                                <div class="tooltip" >
+                                    <img src="{{item.imageUrl}}" />
+                                </div>
+                            </div>
+                            
+                            <div class="book-info" >
+                                <p class="book-author">by {{item.author}}</p>
+                            </div>
+                            <p class="book-price">{{item.price}}</p>
+                        </div>
+                    }
+
+            }
+
+            <button class="place-order-btn" routerLink="/profile">Back to profile</button>
+        </ul>
+} @else{
+    <div>
+        <h2 class="no-items">No orders yet!</h2>
+        <div class="browse-link">
+            <a routerLink="/all">Browse books</a>
+        </div>
+    </div>
+}
+
+    </section>
+
+

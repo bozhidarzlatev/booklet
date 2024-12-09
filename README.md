@@ -78,3 +78,4 @@ The development is planned to proceed as shown:
         -added profile view 
         -fixes and header updates
         -added add to cart functionality
+        -added place order functionality, view card, view orders page

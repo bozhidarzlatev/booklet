@@ -41,5 +41,20 @@ profileController.post('/cart', async (req, res) => {
     
  })
 
+ 
+profileController.post('/order', async (req, res) => {
+    const {userId, orderData , totalPrice} = req.body
+    const placedOrder = await profileService.placeOrder(userId, orderData , totalPrice)
+    res.status(200).send({userId, orderData , totalPrice})
+ })
+
+  
+profileController.get('/order/:orderId', async (req, res) => {
+    const {orderId} = req.params    
+    const orderDetails = await profileService.getOneOrder(orderId)
+
+    res.status(200).send(orderDetails)
+ })
+
 export default profileController;
 

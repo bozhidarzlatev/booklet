@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Book, BookToAdd } from './types/book';
 import { parseArgs } from 'util';
+import { Orders } from './types/user';
 
 @Injectable({
   providedIn: 'root'
@@ -28,5 +29,14 @@ export class ApiService {
   addToCart(bookId: string, ownerId: string) {
     return this.http.post(`/api/user/cart`, {bookId, ownerId})
   }
+
+  placeOrder(userId: string, orderData: Book[] , totalPrice: number) {
+    return this.http.post('/api/user/order', {userId, orderData, totalPrice})
+  }  
+
+  getSingleOrder(orderId: string) {
+    return this.http.get<Orders>(`/api/user/order/${orderId}`)
+  }
+
 
 }

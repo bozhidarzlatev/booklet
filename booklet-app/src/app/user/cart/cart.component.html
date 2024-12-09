@@ -1,1 +1,37 @@
-<p>cart works!</p>
+
+<section class="cart-container">
+    <h1>{{title}}</h1>
+    @if (cardItems.length>0) {
+        <ul class="cart-list">
+
+            @for (book of cardItems; track $index) {
+                    <div class="cart-item" >
+                        <div class="book-info" routerLink="/all/details/{{book._id}}">
+                            <h2 class="book-title">{{book.title}}</h2>
+                            <div class="tooltip" >
+                                <img src="{{book.imageUrl}}" />
+                            </div>
+                        </div>
+                        
+                        <div class="book-info" >
+                            <p class="book-author">by {{book.author}}</p>
+                        </div>
+                        <p class="book-price">{{book.price | number: '1.0-2' }}</p>
+                    </div>
+
+            }
+
+            <button class="place-order-btn" (click)="placeOrder()">Place Order - Total: {{totalPrice | number: '1.0-2' }} lv.</button>
+        </ul>
+} @else{
+    <div>
+        <h2 class="no-items">No items in cart!</h2>
+        <div class="browse-link">
+            <a routerLink="/all">Browse books</a>
+        </div>
+    </div>
+}
+
+    </section>
+
+

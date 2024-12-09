@@ -30,6 +30,14 @@ const userSchema = new Schema({
     cart: [{
         type: Types.ObjectId,
         ref: "Book"
+    }],
+    orders: [{
+        type: Types.ObjectId,
+        ref: "Order"
+    }],
+    books: [{
+        type: Types.ObjectId,
+        ref: "Book"
     }]
 }, { timestamps: { createdAt: 'created_at' } });
 

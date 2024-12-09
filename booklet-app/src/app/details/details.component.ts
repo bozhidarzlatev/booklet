@@ -3,6 +3,7 @@ import { Book } from '../types/book';
 import { ApiService } from '../api.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../user/user.service';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -30,7 +31,6 @@ export class DetailsComponent implements OnInit {
 
   addToCart() {
     const userId = this.userService.user?._id;
-    console.log(`tova lie: `, this.userService.user);
     
     if (!userId) {
       alert("You must be logged in to add items to your cart!");
@@ -38,29 +38,21 @@ export class DetailsComponent implements OnInit {
     }
 
     // Add book to cart and then update user profile
-    this.apiService.addToCart(this.book._id, userId).subscribe(
-      (response) => {
-        console.log('Book added to cart successfully!', response);
-        
-        // Update the user profile after adding to the cart
-        this.userService.getProfile().subscribe(
-          (user) => {
-            console.log('Profile updated:', user);
-            console.log(`azzz `, this.userService.user);
-            
-            // If you need to do something further with the updated profile, you can do it here
-          },
-          (error) => {
-            console.error('Error updating profile:', error);
-            alert('Failed to update profile.');
-          }
-        );
+    this.apiService
+    .addToCart(this.book._id, userId)
+    .pipe(
+      switchMap(() => this.userService.getProfile()) // Automatically fetch profile after adding to cart
+    )
+    .subscribe({
+      next: (user) => {
+        console.log('Profile updated:', user);
+        // Update UI or perform additional logic if needed
       },
-      (error) => {
-        console.error('Error adding book to cart:', error);
-        alert('Failed to add book to cart.');
-      }
-    );
+      error: (err) => {
+        console.error('Error during cart update or profile fetch:', err);
+        alert('An error occurred while updating your cart.');
+      },
+    });
   }
 
 }

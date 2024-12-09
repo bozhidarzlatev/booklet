@@ -1,4 +1,5 @@
 import Book from "../models/Book.js";
+import Order from "../models/Order.js";
 import User from "../models/User.js";
 
 async function register (username, email,profileImg, password, rePassword) {
@@ -27,7 +28,6 @@ async function register (username, email,profileImg, password, rePassword) {
 function uploadByUser(userId) {
     return Book.find({ owner: userId })
     .then((uploads) => {
-        // Do something with the uploads
         return uploads;
     })
     .catch((error) => {
@@ -61,10 +61,69 @@ async function profileData(userId) {
     }
  }
 
+
+ async function placeOrder(userId, orderData, price) {
+    console.log(`place order: `);
+    try {
+        const data = await Order.create({totalPrice: price, owner: userId});
+        const updateOrder = await Order.updateOne({_id: data._id},  { $set: { orderData: orderData } })
+        
+        // TO DO
+        const updatedUser = await User.findByIdAndUpdate(
+            userId,
+            { $push: { orders: data._id } },  // Use $push to add bookId to the cart array
+            { new: true }  // Return the updated user
+        );
+
+        if (!data) {
+            throw new Error("Error placing order!");
+            
+            
+        }
+        const userCart = await clearCartData(userId)
+
+        if (userCart) {
+            
+        }
+        
+    } catch (error) {
+        console.log(`Error clearing cart`, error.message);
+        
+        throw error
+         
+    }
+ }
+
+
+async function clearCartData(userId) {
+    try {
+        const userCart = await User.updateOne({ _id: userId }, { $set: { cart: [] } });
+
+        if (userCart.nModified === 0) {
+            throw new Error('User not found or cart already empty');
+        }
+
+        console.log('Cart cleared successfully');
+    } catch (err) {
+        console.error('Error clearing cart:', err.message);
+        throw err;
+    }
+}
+
+
+async function getOneOrder(orderId) {
+    const order = Order.findById(orderId)
+    
+    return order
+}
+
+
 const profileService = {
     uploadByUser,
     profileData,
-    updateCart
+    updateCart,
+    placeOrder,
+    getOneOrder
 }
 
 export default profileService;

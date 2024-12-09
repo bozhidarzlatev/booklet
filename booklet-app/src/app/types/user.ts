@@ -1,3 +1,5 @@
+import { Book } from "./book";
+
 export interface UserForAuth {
     username: string;
     email: string;
@@ -12,6 +14,7 @@ export interface UserForAuth {
     profileImg: string,
     _id: string,
     cart?: string[],
+    orders?: string[],
   }
 
 
@@ -22,6 +25,33 @@ export interface UserForAuth {
       email: string;
       profileImg: string;
       cart: string[];
+      orders: string[];
     };
     uploads: number;
+  }
+
+
+  export interface Orders {
+    _id: string;
+    owner: string;
+    totalPrice: number;
+    orderData: DetailedBooks[];
+    orderId: string;
+    created_at: string;
+    updatedAt: string;
+    __v: string;
+  }
+
+  
+  export interface DetailedBooks {
+author: string;
+description: string; 
+genre: string;
+imageUrl: string;
+owner: string;
+price: number;
+title: string;
+year: number;
+__v: string;
+_id: string;
   }

@@ -14,13 +14,13 @@ const JWT_SECRET = '41d56qw4d6qw416d54qw64'
 bookController.post('/add', async (req, res) =>{
 
     const bookData = req.body
-    
     const userData = await authService.getProfile(req)
+    const userId = userData._id
     
    
     try {
         const response = await bookService.create(bookData, userData._id, userData.username);
-        
+
         res.status(201).json('Book added successfully')
     } catch (err) {
         res.status(201).json({ message: err })
@@ -42,11 +42,7 @@ bookController.get('/details/:bookId', async (req, res) => {
     res.json(bookDetails)
 })
 
-bookController.post('/cart', async (req, res) => {
-    const {bookId, ownerId } = req.body
-    console.log({bookId, ownerId });
-    
- })
+
 
 
 export default bookController;

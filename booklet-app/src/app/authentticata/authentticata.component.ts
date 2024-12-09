@@ -19,7 +19,6 @@ export class AuthentticataComponent implements OnInit {
 ngOnInit(): void {
   this.userService.getProfile().subscribe({
     next: () => {
-      console.log(`asa`, this.userService.user);
       
       this.isAuthenticating = false
     },

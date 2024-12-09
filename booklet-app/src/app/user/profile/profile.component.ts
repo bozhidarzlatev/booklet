@@ -2,14 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
 import { User, UserProfileResponse } from '../../types/user';
-import { forkJoin } from 'rxjs';
-import { error, log } from 'console';
-import { ArrayLengthPipe } from '../array-length.pipe';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RouterLink, ArrayLengthPipe],
+  imports: [RouterLink],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -23,6 +20,7 @@ export class ProfileComponent implements OnInit {
     profileImg: '',
     _id: '',
     cart: [],
+    orders: [],
 
   }
 
@@ -30,12 +28,19 @@ export class ProfileComponent implements OnInit {
     return this.profileDetails.cart?.length
   }
 
+  
+  get ordersCount() {
+    return this.profileDetails.orders?.length
+  }
+
   uploadsCount: number = 0;
   bookInCart: number = 0;
   
 
   ngOnInit(): void {
+    
     const userId = this.userService.user?._id;
+
 
     if (!userId) {
       console.error('User Id is not available');
@@ -56,9 +61,9 @@ export class ProfileComponent implements OnInit {
           profileImg: userdata.profileImg,
           _id: userdata._id,
           cart: userdata.cart,
+          orders: userdata.orders
         };
         this.uploadsCount = uploads;
-        console.log(this.profileDetails.cart);
         
       },
       error: (err) => {

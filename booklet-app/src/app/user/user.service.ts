@@ -11,7 +11,7 @@ import { Book } from '../types/book';
 })
 export class UserService {
 private user$$ = new BehaviorSubject<User | null>(null) 
-private user$ = this.user$$.asObservable();
+public user$ = this.user$$.asObservable();
 
 
 USER_KEY = '[user]';

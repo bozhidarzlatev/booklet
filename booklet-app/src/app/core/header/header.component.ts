@@ -1,6 +1,8 @@
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { UserService } from '../../user/user.service';
+import { Observable } from 'rxjs';
+import { User } from '../../types/user';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +12,10 @@ import { UserService } from '../../user/user.service';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent  {
-  constructor(private userService: UserService, private router: Router) {}
+
+  constructor(private userService: UserService, private router: Router) {
+   
+  }
 
     get isLoggedIn(): boolean {
       return this.userService.isLogged
@@ -28,6 +33,8 @@ export class HeaderComponent  {
       return this.userService?.user?.cart?.length
     }
 
+
+    
   logout(){
     localStorage.removeItem('[user]');
     this.userService.logout().subscribe(() => {

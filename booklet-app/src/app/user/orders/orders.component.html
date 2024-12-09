@@ -16,7 +16,7 @@
                         <div class="book-info" >
                             <p class="book-author">Ordered at: {{order.created_at}}</p>
                         </div>
-                        <p class="book-price">{{order.totalPrice}}</p>
+                        <p class="book-price">{{order.totalPrice | number: '1.0-2' }} lv.</p>
                     </div>
 
                     @for (item of order.orderData; track $index) {
@@ -31,7 +31,7 @@
                             <div class="book-info" >
                                 <p class="book-author">by {{item.author}}</p>
                             </div>
-                            <p class="book-price">{{item.price}}</p>
+                            <p class="book-price">{{item.price | number: '1.0-2' }} lv.</p>
                         </div>
                     }
 

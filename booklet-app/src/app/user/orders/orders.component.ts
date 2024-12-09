@@ -6,11 +6,12 @@ import { UserService } from '../user.service';
 import { ApiService } from '../../api.service';
 import { Orders, User } from '../../types/user';
 import { log } from 'console';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CartComponent, RouterLink],
+  imports: [CartComponent, RouterLink, DecimalPipe],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })

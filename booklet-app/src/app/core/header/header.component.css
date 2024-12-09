@@ -1,5 +1,22 @@
 
 
+.profile-icon {
+    width: 10px; /* Set the size of the icon */
+    height: 10px; /* Set the size of the icon */
+    border-radius: 50%; /* Make the icon circular */
+    overflow: hidden; /* Ensure the image fits inside the circle */
+    display: flex; /* Use flexbox to center the content */
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+  }
+  
+  .profile-icon img {
+    width: 100%; /* Make the image fill the circle */
+    height: 100%; /* Make the image fill the circle */
+    object-fit: cover; /* Ensure the image covers the whole area without stretching */
+  }
+  
+
 .header {
     position: fixed;
     left: 10px;
@@ -36,6 +53,7 @@
 .home-icon,
 .profile-icon,
 .cart-icon {
+    border-radius: 50%;
     height: 30px;
     width: fit-content;
 }

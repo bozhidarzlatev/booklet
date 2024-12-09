@@ -12,9 +12,12 @@ import 'dotenv/config';
       
         jwt.verify(auth, process.env.JWT_SECRET, (err, user) => {
           if (err) return res.status(403).json({ message: 'Invalid token' });
-          res.status(200).send(user)
+          const userId = user._id;
+          req.user = userId
+          
           next();
         });
       }
 
       export default authenticateToken
+

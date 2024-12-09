@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { User, UserForAuth } from '../types/user';
+import { User, UserForAuth, UserProfileResponse } from '../types/user';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { log } from 'node:console';
+import { Book } from '../types/book';
 // import { Theme } from '../types/theme';
 
 @Injectable({
@@ -30,6 +31,8 @@ get isLogged(): boolean {
     .post<User>('/api/auth/login', {username, password})
     .pipe(tap((user) => {
       this.user$$.next(user);   
+
+      console.log(this.user);
       
       const payload = JSON.stringify(user);
       const data = JSON.parse(payload).user
@@ -70,12 +73,17 @@ get isLogged(): boolean {
 
   getProfile() {
     return this.http.get<User>('/api/user/profile')
-    .pipe(tap((user) => this.user$$.next(user)));
+    .pipe(tap((user) => {this.user$$.next(user)
+      console.log(user);
+      
+    }));
   }
 
+  getUserProfileData(userId: string): Observable<UserProfileResponse> {
+    return this.http.get<UserProfileResponse>('/api/user/userdata', { 
+      params: { userId } 
+    });
+  }
+  
 
-  // createdTheme(themeName: string, postText: string) {
-  //   const payload = {themeName, postText};
-  //   return this.http.post<Theme>('/api/themes', payload)
-  // }
 }

@@ -16,6 +16,13 @@ export class HeaderComponent  {
       return this.userService.isLogged
     }
     
+    get username() {
+      return this.userService?.user?.username
+    }
+    
+    get profileImg() {
+      return this.userService?.user?.profileImg
+    }
   
   
 

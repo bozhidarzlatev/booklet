@@ -4,11 +4,12 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { Title } from '@angular/platform-browser';
 import { filter, map, mergeMap } from 'rxjs';
+import { AuthentticataComponent } from './authentticata/authentticata.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent ],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent , AuthentticataComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

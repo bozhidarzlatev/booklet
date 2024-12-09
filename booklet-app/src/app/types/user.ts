@@ -12,3 +12,14 @@ export interface UserForAuth {
     profileImg: string,
     _id: string,
   }
+
+
+  export interface UserProfileResponse {
+    userdata: {
+      _id: string;
+      username: string;
+      email: string;
+      profileImg: string;
+    };
+    uploads: number;
+  }

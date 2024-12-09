@@ -27,7 +27,7 @@ const userSchema = new Schema({
         minLength: [4, 'Password should be at least 4 characters']
 
     },
-    books: [{
+    cart: [{
         type: Types.ObjectId,
         ref: "Book"
     }]

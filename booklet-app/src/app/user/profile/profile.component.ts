@@ -3,12 +3,13 @@ import { RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
 import { User, UserProfileResponse } from '../../types/user';
 import { forkJoin } from 'rxjs';
-import { error } from 'console';
+import { error, log } from 'console';
+import { ArrayLengthPipe } from '../array-length.pipe';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, ArrayLengthPipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -21,14 +22,20 @@ export class ProfileComponent implements OnInit {
     email: '',
     profileImg: '',
     _id: '',
+    cart: [],
+
+  }
+
+  get cartCount() {
+    return this.profileDetails.cart?.length
   }
 
   uploadsCount: number = 0;
+  bookInCart: number = 0;
   
 
   ngOnInit(): void {
     const userId = this.userService.user?._id;
-    console.log('User ID:', userId);
 
     if (!userId) {
       console.error('User Id is not available');
@@ -41,16 +48,18 @@ export class ProfileComponent implements OnInit {
         // response contains userdata and uploads
         const { userdata, uploads } = response;
 
+        
         // Assign the data to profileDetails and uploadsCount
         this.profileDetails = {
           username: userdata.username,
           email: userdata.email,
           profileImg: userdata.profileImg,
           _id: userdata._id,
+          cart: userdata.cart,
         };
         this.uploadsCount = uploads;
-        console.log('User Data:', userdata);
-        console.log('Number of Uploads:', uploads);
+        console.log(this.profileDetails.cart);
+        
       },
       error: (err) => {
         console.error('Error fetching user profile data:', err);

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Book, BookToAdd } from './types/book';
+import { parseArgs } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class ApiService {
 
   getSingleBook(bookId: string) {
     return this.http.get<Book>(`/api/books/details/${bookId}`)
+  }
+
+  addToCart(bookId: string, ownerId: string) {
+    return this.http.post(`/api/user/cart`, {bookId, ownerId})
   }
 
 }

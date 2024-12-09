@@ -32,7 +32,6 @@ get isLogged(): boolean {
     .pipe(tap((user) => {
       this.user$$.next(user);   
 
-      console.log(this.user);
       
       const payload = JSON.stringify(user);
       const data = JSON.parse(payload).user
@@ -74,7 +73,6 @@ get isLogged(): boolean {
   getProfile() {
     return this.http.get<User>('/api/user/profile')
     .pipe(tap((user) => {this.user$$.next(user)
-      console.log(user);
       
     }));
   }

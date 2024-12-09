@@ -24,7 +24,9 @@ export class HeaderComponent  {
       return this.userService?.user?.profileImg
     }
   
-  
+    get cartLength() {
+      return this.userService?.user?.cart?.length
+    }
 
   logout(){
     localStorage.removeItem('[user]');

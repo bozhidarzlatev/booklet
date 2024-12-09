@@ -24,7 +24,6 @@ export class MainComponent implements OnInit {
 
         
     this.apiService.allBooks().subscribe( books => {
-       console.log(books);
        
         this.books = books
     })

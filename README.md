@@ -76,3 +76,5 @@ The development is planned to proceed as shown:
         -added details functionality -rest-api and Angular
         -added main view fixes
         -added profile view 
+        -fixes and header updates
+        -added add to cart functionality

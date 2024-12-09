@@ -11,6 +11,7 @@ export interface UserForAuth {
     email: string,
     profileImg: string,
     _id: string,
+    cart?: string[],
   }
 
 
@@ -20,6 +21,7 @@ export interface UserForAuth {
       username: string;
       email: string;
       profileImg: string;
+      cart: string[];
     };
     uploads: number;
   }

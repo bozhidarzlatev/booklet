@@ -11,7 +11,7 @@ const profileController = Router();
 profileController.get('/profile',authenticateToken,  async (req, res) =>{
     const userId = req.user
     const userData = await User.findById(userId, { password: 0, __v: 0 }).lean();
-    console.log(`userdata: `. userData);
+
     
     res.status(200).json(userData);
 });
@@ -24,8 +24,7 @@ profileController.get('/userdata' , async (req, res) => {
             profileService.uploadByUser(userId),  
             profileService.profileData(userId)   
         ]);
-
-        console.log(userUploads.length, userData);
+  
 
         res.status(200).send({ userdata: userData, uploads: userUploads.length });
     } catch (error) {
@@ -34,6 +33,13 @@ profileController.get('/userdata' , async (req, res) => {
     }
 
 })
+
+profileController.post('/cart', async (req, res) => {
+    const {bookId, ownerId } = req.body
+    const updUser = await profileService.updateCart(bookId, ownerId)
+    return updUser
+    
+ })
 
 export default profileController;
 

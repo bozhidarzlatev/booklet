@@ -4,7 +4,6 @@ import 'dotenv/config';
 
     function authenticateToken(req, res, next) {
         const auth = req.cookies.authToken
-       console.log(jwt.verify(auth, process.env.JWT_SECRET));
        
         if (!auth) {
           return res.status(401).json({ message: 'Token missing' });

@@ -64,7 +64,7 @@
                         <div class="book-info" >
                             <p class="book-author">Review</p>
                         </div>
-                        <div class="book-info" >
+                        <div class="book-date" >
                             <p class="book-author">Uploaded</p>
                         </div>
                         <div>
@@ -80,13 +80,13 @@
         <ul class="cart-list">
             
             <div class="cart-item" >
-                <div class="book-info" routerLink="/all/details/">
+                <div class="book-title" routerLink="/all/details/">
                     <h2 class="book-title">{{review.ownerName}}</h2>
                 </div>
                 <div class="book-info" >
-                    <p class="book-author">{{review.review}}</p>
+                    <p class="book-review">{{review.review}}</p>
                 </div>
-                <div class="book-info" >
+                <div class="book-date" >
                     <p class="book-author">{{review.created_at |  date: 'dd-MMMM-yyyy'}}</p>
                 </div>
                 <div>

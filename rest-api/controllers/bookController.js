@@ -23,6 +23,8 @@ bookController.post('/add', async (req, res) =>{
 
         res.status(201).json('Book added successfully')
     } catch (err) {
+        console.log(err);
+        
         res.status(400).json({ message: err })
     }
 });
@@ -42,7 +44,17 @@ bookController.get('/details/:bookId', async (req, res) => {
     res.json(bookDetails)
 })
 
+bookController.get('/top', async (req, res) => {
 
+    try {
+        const topBooks = await bookService.getTopbooks().lean();
+        console.log(topBooks);
+        res.status(200).send(topBooks)
+    } catch (error) {
+        res.status(400).send({message: err})
+    }
+
+})
 
 
 export default bookController;

@@ -152,6 +152,7 @@ auth-section {
     gap: 1rem;
 }
 .book-card {
+    position: relative; 
     background: white;
     padding: 1rem;
     border: 1px solid #ddd;
@@ -180,3 +181,19 @@ auth-section {
 }
 
 
+.rating {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px; /* Set width and height to the same value to make it round */
+    height: 40px; /* Set height to match the width */
+    background-color: rgb(74, 234, 240);
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 50%; /* Makes the div round */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text inside the circle */
+    z-index: 1;
+}

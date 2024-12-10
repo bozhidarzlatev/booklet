@@ -36,7 +36,8 @@ const bookSchema = new Schema({
         ref: 'User'
     },
     rating: {
-        type: Number
+        type: Number,
+        default: 0,
     },
     reviews: [{
         type: Types.ObjectId,

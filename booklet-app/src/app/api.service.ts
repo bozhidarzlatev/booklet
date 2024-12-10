@@ -13,8 +13,10 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   addNewBook(imageUrl: string, title: string, author: string, genre: string, year: number, price: number, description: string, owner: string) {
-    const payload = {imageUrl, title, author, genre  ,year, price,  description, owner}
-
+    const priceData = price.toFixed(2)
+    console.log(`price: `, priceData);
+    
+    const payload = {imageUrl, title, author, genre  ,year, price: priceData,  description, owner}
     return this.http.post<BookToAdd>('/api/books/add', payload)
     
   }
@@ -49,5 +51,8 @@ export class ApiService {
     return this.http.get<ReviewData[]>(`/api/reviews/${bookId}`)
   }
 
+  getTopRatedBooks() {
+    return this.http.get<Book[]>('/api/books/top')
+  }
 
 }

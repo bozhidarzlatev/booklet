@@ -80,3 +80,4 @@ The development is planned to proceed as shown:
         -added add to cart functionality
         -added place order functionality, view card, view orders page
         -added review and rating functionality 
+        -home page improvements - top rated book

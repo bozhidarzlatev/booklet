@@ -59,6 +59,8 @@ export class AddComponent {
     });
 
     
+
+    
       this.apiService.addNewBook(imageUrl!, title!, author!, genre!  ,yearNum!, priceNum!,  description!, owner! ).subscribe(() => {
         this.router.navigate(['/all'])
       })

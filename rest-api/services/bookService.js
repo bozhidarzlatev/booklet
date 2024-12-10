@@ -19,10 +19,15 @@ function getOneBook(bookId) {
     return book
 }
 
+function getTopbooks() {
+    return Book.find({}).sort({rating: -1}).limit(4)
+}
+
 const bookService = {
     create,
     allBooks,
-    getOneBook
+    getOneBook,
+    getTopbooks
 }
 
 export default bookService;

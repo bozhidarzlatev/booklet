@@ -3,8 +3,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { matchPasswordsValidator } from '../../utils/match-password.validator';
 import { UserService } from '../user.service';
-import { HttpClient } from '@angular/common/http';
-import { log } from 'console';
+import { emailValidator } from '../../utils/email.validator';
+import { httpValidator } from '../../utils/http.validator';
+import { usernameValidator } from '../../utils/username.validator';
 // import { UserService } from '../user.service';
 
 @Component({
@@ -19,11 +20,11 @@ export class RegisterComponent {
   constructor(private userService: UserService, private router: Router ) {}
 
     form = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(5)]),
-      email: new FormControl('', [Validators.required]),
-      profileImg: new FormControl(''),
+      username: new FormControl('', [Validators.required, Validators.minLength(6), usernameValidator()]),
+      email: new FormControl('', [Validators.required, emailValidator()]),
+      profileImg: new FormControl('', [Validators.required, httpValidator()]),
       passGroup: new FormGroup({
-        password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         rePassword: new FormControl('', [Validators.required]),
       },
       {
@@ -31,6 +32,46 @@ export class RegisterComponent {
       }),
     })
 
+    isFieldTextMissing(controlName: string) {
+      return (
+        this.form.get(controlName)?.touched &&
+        this.form.get(controlName)?.errors?.['required']
+      );
+    }
+  
+    get isNotMinLength() {
+      return (
+        this.form.get('username')?.touched &&
+        this.form.get('username')?.errors?.['minlength']
+      );
+    }
+
+    get isEmailNotValid() {
+      return (
+        this.form.get('email')?.touched &&
+        this.form.get('email')?.errors?.['emailValidator']
+      );
+    }
+
+    
+    get isUrlNotValid() {
+      return (
+        this.form.get('profileImg')?.touched &&
+        this.form.get('profileImg')?.errors?.['httpValidator']
+      );
+    }
+
+    get isUsernameNotValid() {
+      return (
+        this.form.get('profileImg')?.touched &&
+        this.form.get('profileImg')?.errors?.['usernameValidator']
+      );
+    }
+
+
+    get passGroup() {
+      return this.form.get('passGroup');
+    }
 
     register() {
    

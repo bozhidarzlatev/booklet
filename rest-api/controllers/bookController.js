@@ -48,7 +48,6 @@ bookController.get('/top', async (req, res) => {
 
     try {
         const topBooks = await bookService.getTopbooks().lean();
-        console.log(topBooks);
         res.status(200).send(topBooks)
     } catch (error) {
         res.status(400).send({message: err})

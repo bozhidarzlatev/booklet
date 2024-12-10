@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router, RouterLink } from '@angular/router';
 import { matchPasswordsValidator } from '../../utils/match-password.validator';
 import { UserService } from '../user.service';
+import { usernameValidator } from '../../utils/username.validator';
 
 @Component({
   selector: 'app-login',
@@ -16,10 +17,33 @@ export class LoginComponent {
   constructor(private userSErvice: UserService, private router: Router ) {}
 
   form = new FormGroup({
-    username: new FormControl('', [Validators.required, Validators.minLength(5)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(5)]),
+    username: new FormControl('', [Validators.required, Validators.minLength(6), usernameValidator()]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   })
 
+
+  isFieldTextMissing(controlName: string) {
+    return (
+      this.form.get(controlName)?.touched &&
+      this.form.get(controlName)?.errors?.['required']
+    );
+  }
+
+    
+  get isNotMinLength() {
+    return (
+      this.form.get('username')?.touched &&
+      this.form.get('username')?.errors?.['minlength']
+    );
+  }
+
+  
+  get isUsernameNotValid() {
+    return (
+      this.form.get('profileImg')?.touched &&
+      this.form.get('profileImg')?.errors?.['usernameValidator']
+    );
+  }
 
   login() {
     if (this,this.form.invalid) {

@@ -25,14 +25,12 @@ export class DetailsComponent implements OnInit {
     
     this.apiService.getSingleBook(bookId).subscribe( book => {
       this.book = book
-      console.log(`asdsa1` , this.book);
     });
 
 
     this.apiService.getBookReviews(bookId).subscribe({
       next: (reviews: ReviewData[]) => {  
         this.reviews = reviews; 
-        console.log(`asdsa1` , this.reviews);
       },
       error: (err) => {
         console.error('Error fetching reviews:', err);
@@ -40,8 +38,6 @@ export class DetailsComponent implements OnInit {
       }
     });
     
-    console.log(`asdsa` , this.reviews);
-    console.log(`asdsa` , this.book);
     
   }
 

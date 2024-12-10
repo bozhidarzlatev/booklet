@@ -45,7 +45,6 @@ export class CartComponent implements OnInit{
 
 
   placeOrder() {
-    console.log(`order is placed`, this.cardItems);
     this.apiService.placeOrder(this.userId!, this.cardItems! ,this.totalPrice!).subscribe(() => {
       this.router.navigate(['/'])
     })

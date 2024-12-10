@@ -4,41 +4,170 @@
         
         <div class="form-group">
             <label for="book-title">Book Title:</label>
-            <input type="text" id="book-title" placeholder="Enter book title" formControlName="title"  required>
+            <input 
+            [class]="
+            isFieldTextMissing('title') || isNotMinLength('title')
+              ? 'input-error'
+              : ''
+          "
+            type="text" id="book-title" placeholder="Enter book title" formControlName="title"  required>
         </div>
         
+        @if(addForm.get('title')?.touched){
+            <div>
+              @if(addForm.get('title')?.errors?.['required']){
+              <p class="error">Title is required!</p>
+              }
+              <!--  -->
+              @if(addForm.get('title')?.errors?.['minlength']){
+              <p class="error">Title must be atleast 2 characters !</p>
+              }
+            </div>
+            }
+
+
         <div class="form-group">
             <label for="book-author">Author:</label>
-            <input type="text" id="book-author" placeholder="Enter author name" formControlName="author"  required>
+            <input 
+            [class]="
+            isFieldTextMissing('author') || isNotMinLength('author')
+            ? 'input-error'
+            : ''
+        "
+            type="text" id="book-author" placeholder="Enter author name" formControlName="author"  required>
         </div>
+
+        @if(addForm.get('author')?.touched){
+            <div>
+              @if(addForm.get('author')?.errors?.['required']){
+              <p class="error">Author is required!</p>
+              }
+              <!--  -->
+              @if(addForm.get('author')?.errors?.['minlength']){
+              <p class="error">Author must be atleast 5 characters !</p>
+              }
+            </div>
+            }
 
         <div class="form-group">
             <label for="book-genre">Genre:</label>
-            <input type="text" id="book-genre" placeholder="Enter genre" formControlName="genre"  required>
+            <input
+            [class]="
+            isFieldTextMissing('genre') || isNotMinLength('genre')
+            ? 'input-error'
+            : ''
+        " type="text" id="book-genre" placeholder="Enter genre" formControlName="genre"  required>
         </div>
+
+        @if(addForm.get('genre')?.touched){
+            <div>
+              @if(addForm.get('genre')?.errors?.['required']){
+              <p class="error">Genre is required!</p>
+              }
+              <!--  -->
+              @if(addForm.get('genre')?.errors?.['minlength']){
+              <p class="error">Genre must be atleast 5 characters !</p>
+              }
+            </div>
+            }
         
         <div class="form-group">
             <label for="book-year">Published Year:</label>
-            <input type="number" id="book-year" placeholder="Enter published year" formControlName="year"  required>
+            <input
+            [class]="
+            isFieldTextMissing('year') || isNotMinLength('year')
+            ? 'input-error'
+            : ''
+        "
+            
+            type="number" id="book-year" placeholder="Enter published year" formControlName="year"  required>
         </div>
+
+        
+        @if(addForm.get('year')?.touched){
+            <div>
+              @if(addForm.get('year')?.errors?.['required']){
+              <p class="error">Genre is required!</p>
+              }
+              <!--  -->
+              @if(addForm.get('year')?.errors?.['min'] || addForm.get('year')?.errors?.['max'] ){
+              <p class="error">Year must be between 0 and 2024 !</p>
+              }
+            </div>
+            }
+        
         
         <div class="form-group">
             <label for="book-price">Price (in lv.):</label>
-            <input type="number" id="book-price" placeholder="Enter price" formControlName="price"  required>
+            <input
+            [class]="
+            isFieldTextMissing('price')
+            ? 'input-error'
+            : ''
+        "
+            type="number" id="book-price" placeholder="Enter price" formControlName="price"  required>
         </div>
+
+        @if(addForm.get('price')?.touched){
+            <div>
+              @if(addForm.get('price')?.errors?.['required']){
+              <p class="error">Genre is required!</p>
+              }
+              <!--  -->
+              @if(addForm.get('price')?.errors?.['min']  || addForm.get('price')?.errors?.['max'] ){
+              <p class="error">Price must be between 0 and 1000!</p>
+              }
+            </div>
+            }
         
         <div class="form-group">
             <label for="book-description">Description:</label>
-            <textarea id="book-description" placeholder="Enter book description" rows="4" formControlName="description"  required></textarea>
+            <textarea
+            [class]="
+            isFieldTextMissing('description') || isBetweenLength('description')
+            ? 'input-error'
+            : ''
+        "
+         id="book-description" placeholder="Enter book description" rows="4" formControlName="description"  required></textarea>
         </div>
+
+        @if(addForm.get('description')?.touched){
+            <div>
+              @if(addForm.get('description')?.errors?.['required']){
+              <p class="error">Description is required!</p>
+              }
+              <!--  -->
+              @if(isBetweenLength('description')){
+              <p class="error">Description must be maximum betwen 0 and 600 characters!</p>
+              }
+            </div>
+            }
         
         <div class="form-group">
             <label for="book-image">Upload Book Image:</label>
-            <input type="text" id="book-image" placeholder="Enter book image url" formControlName="imageUrl"  required>
+            <input 
+            
+            [class]="
+            isFieldTextMissing('imageUrl') || isUrlNotValid ? 'imageUrl-error' : ''
+          "
+            type="text" id="book-image" placeholder="Enter book image url" formControlName="imageUrl"  required>
         </div>
+
+        @if(addForm.get('imageUrl')?.touched){
+            <div>
+              @if(addForm.get('imageUrl')?.errors?.['required']){
+              <p class="error">Book image is required!</p>
+              }
+              <!--  -->
+              @if(addForm.get('imageUrl')?.errors?.['httpValidator']){
+              <p class="error">Book image is not valid - Must start with http:// ot https:// !</p>
+              }
+            </div>
+            }
+    
         
         <div class="form-actions">
-            <button type="submit" class="add-book-btn">Add Book</button>
+            <button type="submit"  [disabled]="addForm.invalid" [style]="{backgroundColor: addForm.invalid? 'gray' : '#6200ea' }" class="add-book-btn">Add Book</button>
         </div>
     </form>
 </div>

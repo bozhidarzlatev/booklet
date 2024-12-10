@@ -6,6 +6,11 @@
             <div class="form-group">
                 <label for="login-username">Username:</label>
                 <input 
+                [class]="
+                isFieldTextMissing('username') || isNotMinLength || isUsernameNotValid
+                  ? 'input-error'
+                  : ''
+              "
                 type="text" 
                 id="login-username" 
                 placeholder="Enter your username" required
@@ -13,9 +18,29 @@
                 >
             </div>
 
+            @if(form.get('username')?.touched){
+                <div>
+                  @if(form.get('username')?.errors?.['required']){
+                  <p class="error">Username is required!</p>
+                  }
+                  @if(form.get('username')?.errors?.['minlength']){
+                  <p class="error">Username must be at least 6 characters!</p>
+                  }
+                  @if(form.get('username')?.errors?.['usernameValidator']){
+                    <p class="error">Username must contain only letters and nums!</p>
+                    }
+                </div>
+                }
+
             <div class="form-group">
                 <label for="login-password">Password:</label>
                 <input 
+                [class]="(
+                (form.get('password')?.touched &&
+                form.get('password')?.errors?.['required'] ) ||
+                (form.get('password')?.touched && 
+                form.get('password')?.errors?.['minlength'])
+             ) ? 'input-error' : ''"
                 type="password" 
                 id="login-password" 
                 placeholder="Enter your password" required
@@ -24,8 +49,20 @@
                 >
             </div>
 
+            @if(form.get('password')?.touched){
+                <div>
+                  @if(form.get('password')?.errors?.['required']){
+                  <p class="error">Password is required!</p>
+                  }
+                  <!--  -->
+                  @if(form.get('password')?.errors?.['minlength']){
+                  <p class="error">Password must be at least 6 characters!</p>
+                  }
+                </div>
+                }
+
             <div class="form-actions">
-                <button type="submit" class="auth-btn">Login</button>
+                <button type="submit"  [disabled]="form.invalid" [style]="{backgroundColor: form.invalid? 'gray' : 'rgb(248, 189, 138)' }"  class="auth-btn">Login</button>
             </div>
 
             <p class="form-link">

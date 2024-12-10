@@ -63,7 +63,6 @@ async function profileData(userId) {
 
 
  async function placeOrder(userId, orderData, price) {
-    console.log(`place order: `);
     try {
         const data = await Order.create({totalPrice: price, owner: userId});
         const updateOrder = await Order.updateOne({_id: data._id},  { $set: { orderData: orderData } })

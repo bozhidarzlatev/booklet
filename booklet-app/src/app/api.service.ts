@@ -14,7 +14,6 @@ export class ApiService {
 
   addNewBook(imageUrl: string, title: string, author: string, genre: string, year: number, price: number, description: string, owner: string) {
     const priceData = price.toFixed(2)
-    console.log(`price: `, priceData);
     
     const payload = {imageUrl, title, author, genre  ,year, price: priceData,  description, owner}
     return this.http.post<BookToAdd>('/api/books/add', payload)

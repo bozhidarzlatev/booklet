@@ -32,13 +32,11 @@ export class OrdersComponent implements OnInit {
   
     this.cartLength?.forEach(item => 
     this.apiService.getSingleOrder(item).subscribe(response => {
-      console.log(response);
       
       this.orderItems.push(response)
       
     })
   )
-  console.log(this.orderItems);
   
     
 }

@@ -5,57 +5,142 @@
         <div class="form-group">
             <label for="register-username">Username:</label>
             <input 
+            [class]="
+            isFieldTextMissing('username') || isNotMinLength || isUsernameNotValid
+              ? 'input-error'
+              : ''
+          "
                 type="text" 
                 id="register-username" 
-                placeholder="Enter your username" 
+                placeholder="Enter your username - Username96" 
                 formControlName="username" 
                 required>
         </div>
 
+        @if(form.get('username')?.touched){
+            <div>
+              @if(form.get('username')?.errors?.['required']){
+              <p class="error">Username is required!</p>
+              }
+              <!--  -->
+              @if(form.get('username')?.errors?.['minlength']){
+              <p class="error">Username must be at least 6 characters!</p>
+              }
+              @if(form.get('username')?.errors?.['usernameValidator']){
+                <p class="error">Username must contain only letters and nums!</p>
+                }
+            </div>
+            }
+
         <div class="form-group">
             <label for="register-email">Email:</label>
             <input 
+            [class]="
+            isFieldTextMissing('email') || isEmailNotValid ? 'input-error' : ''
+          "
                 type="email" 
                 id="register-email" 
-                placeholder="Enter your email" 
+                placeholder="Enter your email - first.name@email.com" 
                 formControlName="email" 
                 required>
-        </div>            
+        </div>     
+        
+
+
+        
+      @if(form.get('email')?.touched){
+        <div>
+          @if(form.get('email')?.errors?.['required']){
+          <p class="error">Email is required!</p>
+          }
+          <!--  -->
+          @if(form.get('email')?.errors?.['emailValidator']){
+          <p class="error">Email is not valid - use no special characters only . and  "&#64;" are allowed!</p>
+          }
+        </div>
+        }
 
         <div class="form-group">
             <label for="register-profile-picture">Profile Picture URL:</label>
             <input 
+            [class]="
+            isFieldTextMissing('profileImg') || isUrlNotValid ? 'input-error' : ''
+          "
                 type="url" 
                 id="register-profile-picture" 
-                placeholder="Enter profile picture URL" 
+                placeholder="Enter profile picture URL - http:// or https://" 
                 formControlName="profileImg" 
                 required>
         </div>
+
+        @if(form.get('profileImg')?.touched){
+            <div>
+              @if(form.get('profileImg')?.errors?.['required']){
+              <p class="error">Image is required!</p>
+              }
+              <!--  -->
+              @if(form.get('profileImg')?.errors?.['httpValidator']){
+              <p class="error">Image Url is not valid - Must start with http:// ot https:// !</p>
+              }
+            </div>
+            }
+    
+
 
         <div formGroupName="passGroup">
         <div class="form-group">
             <label for="register-password">Password:</label>
             <input 
+            [class]="(
+                (passGroup?.get('password')?.touched &&
+                 passGroup?.get('password')?.errors?.['required'] ) ||
+                 (passGroup?.get('password')?.touched && 
+                 passGroup?.get('password')?.errors?.['minlength'])
+              ) ? 'input-error' : ''"
                 type="password" 
                 id="register-password" 
                 placeholder="Enter your password" 
                 formControlName="password" 
                 required>
         </div>
+        @if(passGroup?.get('password')?.touched){
+            <div>
+              @if(passGroup?.get('password')?.errors?.['required']){
+              <p class="error">Password is required!</p>
+              }
+              <!--  -->
+              @if(passGroup?.get('password')?.errors?.['minlength']){
+              <p class="error">Password must be at least 6 characters!</p>
+              }
+            </div>
+            }
 
         <div class="form-group">
             <label for="register-repassword">Re-enter Password:</label>
             <input 
+            [class]="(
+                (passGroup?.get('rePassword')?.touched &&
+                (passGroup?.get('rePassword')?.errors?.['required'] ||
+                passGroup?.errors?.['matchPasswordsValidator'])) 
+              ) ? 'input-error' : ''"
                 type="password" 
                 id="register-repassword" 
                 placeholder="Re-enter your password" 
                 formControlName="rePassword" 
                 required>
         </div>
+        @if(passGroup?.get('rePassword')?.touched){
+        <div>
+            @if(passGroup?.errors?.['matchPasswordsValidator'] ||
+          passGroup?.get('rePassword')?.errors?.['required']){
+            <p class="error">Repeat Password does not match password!</p>
+          }
+          </div>
+        }
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="auth-btn">Register</button>
+            <button type="submit" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid? 'gray' : 'rgb(248, 189, 138)' }" class="auth-btn">Register</button>
         </div>
 
         <p class="form-link">

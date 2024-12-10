@@ -28,12 +28,10 @@ export class AddReviewComponent {
     }
 
     const bookId = this.route.snapshot.params['bookId']
-    console.log(bookId);
 
     const { review , rating } = this.reviewForm.value
     const ratingNum = Number(rating)
 
-    console.log(`Add review` , {review , rating, bookId});
     this.apiService.addReview(review! , ratingNum!, bookId!).subscribe(()=>{
       this.router.navigate([`/all/details/${bookId}`])
     })

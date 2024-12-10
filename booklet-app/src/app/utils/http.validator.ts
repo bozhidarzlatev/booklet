@@ -1,7 +1,7 @@
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
-export function emailValidator(): ValidatorFn {
-  const regExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/; // This regex pattern is correct for most cases
+export function httpValidator(): ValidatorFn {
+  const regExp = /^https?:\/\//; // This regex pattern is correct for most cases
 
   return (control: AbstractControl): ValidationErrors | null => {
     if (!control.value) {
@@ -10,6 +10,6 @@ export function emailValidator(): ValidatorFn {
 
     const isValid = regExp.test(control.value);
 
-    return isValid ? null : { emailValidator: true }; // Return an error object if invalid
+    return isValid ? null : { httpValidator: true }; // Return an error object if invalid
   };
 }

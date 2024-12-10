@@ -81,3 +81,4 @@ The development is planned to proceed as shown:
         -added place order functionality, view card, view orders page
         -added review and rating functionality 
         -home page improvements - top rated book
+        -added form validations

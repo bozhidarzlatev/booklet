@@ -79,3 +79,4 @@ The development is planned to proceed as shown:
         -fixes and header updates
         -added add to cart functionality
         -added place order functionality, view card, view orders page
+        -added review and rating functionality 

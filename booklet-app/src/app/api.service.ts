@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Book, BookToAdd } from './types/book';
+import { Book, BookToAdd, ReviewData } from './types/book';
 import { parseArgs } from 'util';
 import { Orders } from './types/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,16 @@ export class ApiService {
 
   getSingleOrder(orderId: string) {
     return this.http.get<Orders>(`/api/user/order/${orderId}`)
+  }
+
+
+  addReview(review: string, rating: number, bookId: string) {
+    return this.http.post('/api/reviews', {review , rating, bookId})
+  }
+
+  getBookReviews(bookId: string): Observable<ReviewData[]> {
+    
+    return this.http.get<ReviewData[]>(`/api/reviews/${bookId}`)
   }
 
 

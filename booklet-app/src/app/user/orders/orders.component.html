@@ -14,7 +14,7 @@
                         </div>
                         
                         <div class="book-info" >
-                            <p class="book-author">Ordered at: {{order.created_at}}</p>
+                            <p class="book-author">Ordered at: {{order.created_at | date: 'dd-MMMM-yyyy' }}</p>
                         </div>
                         <p class="book-price">{{order.totalPrice | number: '1.0-2' }} lv.</p>
                     </div>

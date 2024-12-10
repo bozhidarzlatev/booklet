@@ -1,0 +1,20 @@
+<div class="add-book-container">
+    <h1>Add a Review for Book</h1>
+    <form class="add-book-form" [formGroup]="reviewForm" (ngSubmit)="addReview()">
+        
+        
+        <div class="form-group" >
+            <label for="book-description">Review:</label>
+            <textarea id="review" placeholder="Enter book review" rows="4" formControlName="review"  required></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label for="book-year">Rating:</label>
+            <input type="number" id="ratingyear" placeholder="Enter book rating from 1-10" formControlName="rating"  required>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="add-book-btn" >Add Review</button>
+        </div>
+    </form>
+</div>

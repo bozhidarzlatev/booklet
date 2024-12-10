@@ -52,6 +52,13 @@ hr{
     margin: 5px 0;
 }
 
+.book-author {
+    word-wrap: break-word; /* Allows long words or URLs to break */
+    word-break: break-word; /* Forces breaking in long strings */
+    white-space: normal;    /* Ensures text wraps to a new row */
+    overflow-wrap: anywhere; /* Supports text wrapping across all browsers */
+}
+
 .book-description {
     margin-top: 15px;
 }
@@ -134,3 +141,162 @@ hr{
     border-left: 4px black solid;
 }
 
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+.cart-container {
+    max-width: 900px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.cart-list {
+    padding: 0;
+    margin: 0;
+}
+
+.cart-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+    wer
+}
+
+.book-info {
+    flex: 2;
+    max-width: 70%;
+}
+
+.book-title {
+    font-size: 18px;
+    margin: 0 0 5px;
+    color: #222;
+    transition: text-decoration 0.3s ease;
+}
+
+.book-title:hover {
+    cursor: pointer;
+    color: #0056b3;
+    text-shadow: #666;
+    text-decoration: underline;
+}
+
+.book-title:active {
+
+
+    color: #16ad43;
+    text-shadow: #f80a0a;
+    text-decoration: underline;
+}
+
+.book-author {
+    font-size: 14px;
+    margin: 0;
+    color: #666;
+}
+
+.book-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+
+.place-order-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.place-order-btn:hover {
+    background-color: #0056b3;
+}
+
+.no-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #777070;
+    margin-bottom: 20px;
+}
+
+.browse-link {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.browse-link a {
+    font-size: 1.2rem;
+    color: #4CAF50;
+    text-decoration: none;
+    border: 1px solid #4CAF50;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.browse-link a:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.browse-link a:active {
+    background-color: #65b6e6;
+    color: white;
+}
+
+
+.tooltip {
+    position: absolute;
+    left: -30%; 
+    top: 50%;   
+    transform: translateY(-50%); 
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+}
+
+.book-title:hover ~ .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.tooltip img {
+    max-width: 150px; 
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}

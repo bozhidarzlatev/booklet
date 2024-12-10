@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CartComponent } from '../cart/cart.component';
 import { Router, RouterLink } from '@angular/router';
-import { Book } from '../../types/book';
 import { UserService } from '../user.service';
 import { ApiService } from '../../api.service';
 import { Orders, User } from '../../types/user';
-import { log } from 'console';
-import { DecimalPipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-orders',
   standalone: true,
-  imports: [CartComponent, RouterLink, DecimalPipe],
+  imports: [CartComponent, RouterLink, DecimalPipe, DatePipe],
   templateUrl: './orders.component.html',
   styleUrl: './orders.component.css'
 })

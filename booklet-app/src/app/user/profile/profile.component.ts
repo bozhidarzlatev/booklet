@@ -47,7 +47,6 @@ export class ProfileComponent implements OnInit {
       return;
     }
 
-    // Fetch user profile data and uploads in parallel
     this.userService.getUserProfileData(userId).subscribe({
       next: (response: UserProfileResponse) => {
         // response contains userdata and uploads

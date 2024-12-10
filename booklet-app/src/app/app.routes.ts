@@ -9,6 +9,7 @@ import { LoginComponent } from './user/login/login.component';
 import { MainComponent } from './main/main.component';
 import { DetailsComponent } from './details/details.component';
 import { OrdersComponent } from './user/orders/orders.component';
+import { AddReviewComponent } from './reviews/add-review/add-review.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, data: { title: 'Home Page' } },
@@ -17,6 +18,7 @@ export const routes: Routes = [
     {path: 'all', children: [
         {path: '', component: MainComponent, data: { title: 'All books' }},
         {path: 'details/:bookId', component: DetailsComponent,  data: { title: 'Details' }},
+        {path: 'details/:bookId/review', component: AddReviewComponent,  data: { title: 'Add Review' }},
     ]} ,
     {path: 'profile', children: [
         {path: '', component: ProfileComponent, data: { title: 'Profile page' }},

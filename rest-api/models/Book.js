@@ -34,7 +34,14 @@ const bookSchema = new Schema({
     ownerName: {
         type: String,
         ref: 'User'
-    }
+    },
+    rating: {
+        type: Number
+    },
+    reviews: [{
+        type: Types.ObjectId,
+        ref: "Review"
+    }],
 }, { timestamps: { createdAt: 'created_at' } });
 
 const Book = model('Book', bookSchema);

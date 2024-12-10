@@ -38,7 +38,11 @@ const userSchema = new Schema({
     books: [{
         type: Types.ObjectId,
         ref: "Book"
-    }]
+    }],
+    reviews: [{
+        type: Types.ObjectId,
+        ref: "Review"
+    }],
 }, { timestamps: { createdAt: 'created_at' } });
 
 userSchema.pre('save' , async function () {

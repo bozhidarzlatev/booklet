@@ -17,7 +17,7 @@
                 <p class="book-author"><strong>Author:</strong> {{book.author}}</p>
                 <p class="book-genre"><strong>Genre:</strong> {{book.genre}}</p>
                 <p class="book-year"><strong>Published Year:</strong>   {{book.year}}</p>
-                <p class="book-rating"><strong>Reting:</strong>// TO DO</p>
+                <p class="book-rating"><strong>Rating:</strong> {{book.rating || 'n/a'}}</p>
                 <p class="book-distributor"><strong>Distributor:</strong> {{book.ownerName}}</p>
                               
                 
@@ -34,14 +34,91 @@
             <div class="book-actions">
                 <p class="book-price"><strong>Price:</strong> {{book.price}} lv.</p>
                 <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
-                <button class="review-btn">Add review</button>
+                <button class="review-btn" routerLink="/all/details/{{book._id}}/review">Add review</button>
                 <button class="review-btn">Edit movie</button>
                 <button class="review-btn">Delete movie</button>
             </div>
         </div>
+        
+        
+        <!-- @if (book.rating) { -->
+        <hr>
+
+  
+<section class="cart-container">
+    <h1>Reviews </h1>
+    @if (!book.rating) {
+
+        <h2 class="no-items">No reviews for this book</h2>
+    } @else {
+
+        <ul class="cart-list">
+            
+                    <div class="cart-item" >
+                        <div class="book-info" routerLink="/all/details/">
+                            <h2 class="book-title">User</h2>
+                            <div class="tooltip" >
+                                <img src="" />
+                            </div>
+                        </div>
+                        <div class="book-info" >
+                            <p class="book-author">Review</p>
+                        </div>
+                        <div class="book-info" >
+                            <p class="book-author">Uploaded</p>
+                        </div>
+                        <div>
+
+                            <p class="book-price">Rating</p>
+                        </div>
+                    </div>
+                    
+                </ul>
+
+    @for (review of reviews; track $index) {
+        
+        <ul class="cart-list">
+            
+            <div class="cart-item" >
+                <div class="book-info" routerLink="/all/details/">
+                    <h2 class="book-title">{{review.ownerName}}</h2>
+                </div>
+                <div class="book-info" >
+                    <p class="book-author">{{review.review}}</p>
+                </div>
+                <div class="book-info" >
+                    <p class="book-author">{{review.created_at |  date: 'dd-MMMM-yyyy'}}</p>
+                </div>
+                <div>
+                    <p class="book-price">{{review.rating}}</p>
+                </div>
+            </div>
+            
+        </ul>
+        
+    }
+
+
+                
+            } 
+            
+            <div class="button-container">
+                <button class="place-order-btn" routerLink="/all/details/{{book._id}}/review">Add review!</button>
+            </div>
+    
+
+
+
+    </section>
+
+
+
+    <!-- } -->
+
+
+    <!-- Related Books or Recommendations -->
     <hr>
-        <!-- Related Books or Recommendations -->
-         <div class="more-books">
+    <div class="more-books">
 
              <div class="related-books">
                  <h2>More from author</h2>
@@ -60,6 +137,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
                 
   
 

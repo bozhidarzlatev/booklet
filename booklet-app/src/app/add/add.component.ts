@@ -8,7 +8,7 @@ import { log } from 'console';
 @Component({
   selector: 'app-add',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule ],
+  imports: [ ReactiveFormsModule ],
   templateUrl: './add.component.html',
   styleUrl: './add.component.css'
 })
@@ -44,6 +44,7 @@ export class AddComponent {
 
     const yearNum = Number(year)
     const priceNum = Number(price)
+    
 
     
     const owner =  localStorage.getItem(`[user]`)?.split('"')[3];   
@@ -56,6 +57,7 @@ export class AddComponent {
       price,
       description,
     });
+
     
       this.apiService.addNewBook(imageUrl!, title!, author!, genre!  ,yearNum!, priceNum!,  description!, owner! ).subscribe(() => {
         this.router.navigate(['/all'])

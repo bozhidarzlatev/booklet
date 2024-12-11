@@ -7,6 +7,7 @@ import { switchMap } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { SlicePipe } from '../shared/pipes/slice.pipe';
 import { ElapsedTimePipe } from '../shared/pipes/elapsed-time.pipe';
+import { CartService } from '../user/cart/cart.service';
 
 @Component({
   selector: 'app-details',
@@ -19,8 +20,13 @@ export class DetailsComponent implements OnInit {
   book = {} as Book;
   reviews: ReviewData[] = [] ; 
 
-  constructor( private apiService: ApiService, private route: ActivatedRoute, private userService: UserService) {}
+  constructor( private cartService: CartService , private apiService: ApiService, private route: ActivatedRoute, private userService: UserService) {}
 
+  product = {
+    id: 1,
+    name: 'Product 1',
+    price: 100
+  };
 
   ngOnInit(): void {
     const bookId = this.route.snapshot.params['bookId'];
@@ -43,14 +49,19 @@ export class DetailsComponent implements OnInit {
     
   }
 
+  nzbrat() {
+    this.userService.getProfile
+  }
 
   addToCart() {
     const userId = this.userService.user?._id;
-    
+    // this.cartService.addToCart(this.product);
     if (!userId) {
       alert("You must be logged in to add items to your cart!");
       return;
     }
+
+    this.userService.user?.cart?.push(this.book._id)
 
     // Add book to cart and then update user profile
     this.apiService

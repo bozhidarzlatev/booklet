@@ -82,6 +82,7 @@ The development is planned to proceed as shown:
         -added review and rating functionality 
         -home page improvements - top rated book
         -added form validations
+        -added cart count 
 
 
         //TO DO

@@ -59,8 +59,7 @@ bookController.get('/top', async (req, res) => {
 bookController.post('/', async (req, res) => {
     const data = req.params.input
     const searchQuery = req.body.searchQuery;
-    console.log(data);
-    console.log(searchQuery);
+
     res.send(data)
     
 })

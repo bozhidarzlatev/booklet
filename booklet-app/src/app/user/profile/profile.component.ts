@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
 import { User, UserProfileResponse } from '../../types/user';
+import { log } from 'console';
 
 @Component({
   selector: 'app-profile',
@@ -32,14 +33,20 @@ export class ProfileComponent implements OnInit {
   get ordersCount() {
     return this.profileDetails.orders?.length
   }
-
+  
   uploadsCount: number = 0;
   bookInCart: number = 0;
   
-
+  get userId () {
+    return this.profileDetails._id
+  }
+  
   ngOnInit(): void {
-    
+    this.userService.getProfile().subscribe(data => {
+      
+    })
     const userId = this.userService.user?._id;
+
 
 
     if (!userId) {

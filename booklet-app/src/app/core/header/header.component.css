@@ -58,16 +58,26 @@
 }
 
 
-/* .home-btn,
+
 .user-btns {
-    border: none;
-    border-radius:18px ;
-    height: 36px;
-    width: 36px;
-    background-color: rgb(248, 189, 138);
-} */
+    position: relative; 
 
+} 
 
+.cart-count {
+    position: absolute;
+    top: 0; 
+    right: 0; 
+    transform: translate(50%, -50%); 
+    background-color: red;
+    color: white; 
+    border-radius: 50%; 
+    font-size: 14px; 
+    font-weight: bold;
+    text-align: center;
+    height: 20px;
+    width: 20px; 
+}
 
 .header:hover .home-btn
 .header:hover .user-btns{

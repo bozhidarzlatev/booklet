@@ -70,8 +70,8 @@ async function profileData(userId) {
         // TO DO
         const updatedUser = await User.findByIdAndUpdate(
             userId,
-            { $push: { orders: data._id } },  // Use $push to add bookId to the cart array
-            { new: true }  // Return the updated user
+            { $push: { orders: data._id } },  
+            { new: true }  
         );
 
         if (!data) {
@@ -82,6 +82,7 @@ async function profileData(userId) {
         const userCart = await clearCartData(userId)
 
         if (userCart) {
+            console.log(`Cart is empty`);
             
         }
         

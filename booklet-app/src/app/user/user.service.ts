@@ -10,8 +10,8 @@ import { Book } from '../types/book';
   providedIn: 'root'
 })
 export class UserService {
-private user$$ = new BehaviorSubject<User | null>(null) 
-private user$ = this.user$$.asObservable();
+user$$ = new BehaviorSubject<User | null>(null) 
+user$ = this.user$$.asObservable();
 
 
 USER_KEY = '[user]';
@@ -30,7 +30,8 @@ get isLogged(): boolean {
     return this.http
     .post<User>('/api/auth/login', {username, password})
     .pipe(tap((user) => {
-      this.user$$.next(user);   
+      this.user$$.next(user);  
+       
       })
     );    
   }
@@ -40,7 +41,6 @@ get isLogged(): boolean {
       .get('/api/auth/logout', {})
       .pipe(tap((user) => {
         this.user$$.next(null);
-        localStorage.removeItem(this.USER_KEY)
       })
     )
   }
@@ -59,12 +59,13 @@ get isLogged(): boolean {
 
   getProfile() {
     return this.http.get<User>('/api/user/profile')
-    .pipe(tap((user) => {this.user$$.next(user)
-      
+    .pipe(tap((user) => {
+      this.user$$.next(user);      
     }));
   }
 
   getUserProfileData(userId: string): Observable<UserProfileResponse> {
+
     return this.http.get<UserProfileResponse>('/api/user/userdata', { 
       params: { userId } 
     });

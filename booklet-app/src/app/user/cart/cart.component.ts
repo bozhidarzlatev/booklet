@@ -5,6 +5,7 @@ import { Book } from '../../types/book';
 import { Router, RouterLink } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
 import { User } from '../../types/user';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -45,10 +46,22 @@ export class CartComponent implements OnInit{
   }
 
 
-  placeOrder() {
-    this.apiService.placeOrder(this.userId!, this.cardItems! ,this.totalPrice!).subscribe(() => {
-      this.router.navigate(['/'])
-    })
+  placeOrder(): void {
+    // First call placeOrder
+    this.apiService.placeOrder(this.userId!, this.cardItems!, this.totalPrice!).pipe(
+      switchMap(() => {
+        return this.userService.getProfile(); 
+      })
+    ).subscribe({
+      next: (profile) => {
+        console.log('User profile updated:', profile);
+        
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        console.error('Error placing order or fetching profile:', err);
+      }
+    });
   }
 
 }

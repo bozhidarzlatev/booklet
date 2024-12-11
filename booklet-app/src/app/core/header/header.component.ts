@@ -3,6 +3,7 @@ import { Router, RouterLink, RouterModule } from '@angular/router';
 import { UserService } from '../../user/user.service';
 import { Observable } from 'rxjs';
 import { User } from '../../types/user';
+import { CartService } from '../../user/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,9 +12,10 @@ import { User } from '../../types/user';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent  {
+export class HeaderComponent implements OnInit  {
+  cartCount: number = 0;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private cartService: CartService ,private userService: UserService, private router: Router) {
    
   }
 
@@ -33,6 +35,13 @@ export class HeaderComponent  {
       return this.userService?.user?.cart?.length
     }
 
+    ngOnInit(): void {
+      // // Subscribe to the cart item count observable
+      // this.cartService.cartItemCount$.subscribe(count => {
+      //   this.cartCount = count;
+      // });
+    }
+  
 
     
   logout(){

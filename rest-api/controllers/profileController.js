@@ -12,7 +12,7 @@ const profileController = Router();
 profileController.get('/profile',authenticateToken,  async (req, res) =>{
     const userId = req.user
     const userData = await User.findById(userId, { password: 0, __v: 0 }).lean();
-
+    
     
     res.status(200).json(userData);
 });

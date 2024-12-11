@@ -36,7 +36,7 @@
         } @else {
             
             <button class="user-btns" (click)="logout()">
-                <div>Logout {{cartLength}}</div>
+                <div> Logout </div>
                 <div class="tooltip">See you soon ;)</div>
             </button>
             <button class="user-btns" routerLink="/profile">
@@ -45,7 +45,9 @@
             </button>
             <button class="user-btns" routerLink="/profile/cart">
                 <img class="cart-icon" src="app-resourses/cart.svg" />
+                <div class="cart-count">{{cartLength}}</div>
                 <div class="tooltip">View cart</div>
+                
             </button>
         }
 

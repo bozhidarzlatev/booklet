@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken"
 import profileService from "../services/profileService.js";
 import authenticateToken from "../middlewares/authenticate.js";
 import User from "../models/User.js";
+import bookService from "../services/bookService.js";
 
 const profileController = Router();
 
@@ -14,6 +15,25 @@ profileController.get('/profile',authenticateToken,  async (req, res) =>{
 
     
     res.status(200).json(userData);
+});
+
+profileController.get('/cart/data',authenticateToken,  async (req, res) =>{
+
+    try {
+        const userId = req.user;
+            const userCart = await User.findById(userId)
+   
+        const returnBookData = await bookService.returnBookData(userCart.cart)
+        
+        res.status(200).json(returnBookData);
+        
+    } catch (error) {
+        throw new Error(`Failed to load cart data`, error);
+                
+        res.status(500).json(error);
+
+        
+    }
 });
 
 

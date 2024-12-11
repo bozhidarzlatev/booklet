@@ -11,7 +11,7 @@ import { Book } from '../types/book';
 })
 export class UserService {
 private user$$ = new BehaviorSubject<User | null>(null) 
-public user$ = this.user$$.asObservable();
+private user$ = this.user$$.asObservable();
 
 
 USER_KEY = '[user]';
@@ -31,14 +31,6 @@ get isLogged(): boolean {
     .post<User>('/api/auth/login', {username, password})
     .pipe(tap((user) => {
       this.user$$.next(user);   
-
-      
-      const payload = JSON.stringify(user);
-      const data = JSON.parse(payload).user
-
-      
-      localStorage.setItem(this.USER_KEY, JSON.stringify(data) );
-      
       })
     );    
   }
@@ -60,12 +52,7 @@ get isLogged(): boolean {
     .post<User>('/api/auth/register', {username, email, profileImg, password, rePassword})
     .pipe(tap((user) => {
       this.user$$.next(user);
-
-      const payload = JSON.stringify(user);
-      const data = JSON.parse(payload).user;
-
-      localStorage.setItem(this.USER_KEY, JSON.stringify(data)  );
-  })
+    })
   );
   }
 

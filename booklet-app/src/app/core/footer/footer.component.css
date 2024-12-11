@@ -9,6 +9,7 @@ footer {
     text-align: center;
     border-radius: 20px;
     flex-wrap: wrap;
+    z-index: 10;
     }
     
     footer p {

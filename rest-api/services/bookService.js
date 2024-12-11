@@ -13,21 +13,33 @@ function allBooks(filter = {}) {
     return query;
 };
 
-function getOneBook(bookId) {
-    const book = Book.findById(bookId)
+async function getOneBook(bookId) {
+    const book = await Book.findById(bookId)
     
     return book
 }
 
 function getTopbooks() {
-    return Book.find({}).sort({rating: -1}).limit(4)
+    return Book.find({}).sort({rating: -1}).limit(5)
 }
+
+async function returnBookData(data) {
+    const books =[]
+    for (const element of data) {
+        const bookData = await getOneBook(element);  // Wait for the result from getOneBook
+        
+        books.push(bookData);  // Push the book data to the 'books' array
+    }
+    return books
+}
+ 
 
 const bookService = {
     create,
     allBooks,
     getOneBook,
-    getTopbooks
+    getTopbooks,
+    returnBookData
 }
 
 export default bookService;

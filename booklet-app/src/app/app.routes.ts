@@ -10,6 +10,7 @@ import { MainComponent } from './main/main.component';
 import { DetailsComponent } from './details/details.component';
 import { OrdersComponent } from './user/orders/orders.component';
 import { AddReviewComponent } from './reviews/add-review/add-review.component';
+import { ErrorMessageComponent } from './core/error-message/error-message.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, data: { title: 'Home Page' } },
@@ -28,6 +29,7 @@ export const routes: Routes = [
     ]},
     {path: 'login', component: LoginComponent, data: { title: 'Login - Nice to see you again' }},
     {path: 'register', component: RegisterComponent, data: { title: 'Register and enjoy' }},
+    {path: 'error', component: ErrorMessageComponent, data: { title: 'Error' }},
     {path: '404', component: ErrorComponent, data: { title: 'Error - Not found' }},
     {path: '**', redirectTo: '/404', pathMatch: 'full'}
 

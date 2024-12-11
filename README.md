@@ -82,3 +82,11 @@ The development is planned to proceed as shown:
         -added review and rating functionality 
         -home page improvements - top rated book
         -added form validations
+
+
+        //TO DO
+        EDIT
+        DELETE
+        cosmetics 
+        BehaviorSubject fixes
+        Guards

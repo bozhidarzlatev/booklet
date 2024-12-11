@@ -24,6 +24,11 @@ export class ApiService {
     return this.http.get<Book[]>('/api/books/all')
   }
 
+
+  search(input: string) {
+    return this.http.get<Book[]>(`/api/search/${input}`)
+  }
+
   getSingleBook(bookId: string) {
     return this.http.get<Book>(`/api/books/details/${bookId}`)
   }
@@ -52,6 +57,10 @@ export class ApiService {
 
   getTopRatedBooks() {
     return this.http.get<Book[]>('/api/books/top')
+  }
+
+  getCartData() {
+    return this.http.get<Book[]>(`/api/user/cart/data`)
   }
 
 }

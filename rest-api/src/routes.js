@@ -15,5 +15,6 @@ routes.use('/api/auth', authController)
 routes.use('/api/books', bookController)
 routes.use('/api/user', profileController)
 routes.use('/api/reviews', reviewController)
+routes.use('/api/search', bookController)
 
 export default routes;

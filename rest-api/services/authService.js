@@ -56,13 +56,12 @@ async function getProfile(req) {
             throw new Error('Authentication token is missing');
         }
 
-        // Verify the token to make sure it's valid and has the correct signature.
         const decoded = jwt.verify(userData, process.env.JWT_SECRET);
 
         return decoded;
     } catch (error) {
-        console.error('Error decoding token:', error.message);
-        return null; // or you could throw the error to be handled elsewhere
+        throw new Error('Error decoding token:', error.message);
+        return null; 
     }
 }
 

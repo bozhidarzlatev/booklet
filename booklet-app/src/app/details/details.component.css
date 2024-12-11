@@ -222,7 +222,7 @@ h1 {
     overflow-wrap: anywhere; 
 }
 .book-author {
-    font-size: 14px;
+    /* font-size: 14px; */
     margin: 0;
     color: #666;
     word-wrap: break-word; /* Allows long words or URLs to break */

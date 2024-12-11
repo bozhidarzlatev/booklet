@@ -16,7 +16,7 @@ authController.post('/register',  async (req, res) => {
         res.cookie(AUTH_COOKIE_NAME, token, {httpOnly: true});
         const user = await authService.findProfile({username}); 
        
-        res.status(201).json({ message: 'Registration successful!' });
+        res.status(201).json(user);
     } catch (err) {
         const error = getErrorMessage(err);
         console.log(err);

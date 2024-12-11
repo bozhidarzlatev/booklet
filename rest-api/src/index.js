@@ -3,7 +3,7 @@ import routes from './routes.js';
 import 'dotenv/config';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
-
+import bodyParser from 'body-parser'
 import mongoose, {mongo} from 'mongoose';
 
 const app = express();
@@ -20,6 +20,8 @@ const corsOptions = {
 app.use(cors(corsOptions));          
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use( bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(routes)
 

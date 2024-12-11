@@ -5,11 +5,13 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UserService } from '../user/user.service';
 import { switchMap } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { SlicePipe } from '../shared/pipes/slice.pipe';
+import { ElapsedTimePipe } from '../shared/pipes/elapsed-time.pipe';
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [ RouterLink, DatePipe],
+  imports: [ RouterLink, DatePipe, SlicePipe, ElapsedTimePipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })
@@ -66,6 +68,7 @@ export class DetailsComponent implements OnInit {
         alert('An error occurred while updating your cart.');
       },
     });
+   
   }
 
 }

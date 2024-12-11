@@ -1,0 +1,36 @@
+
+.error-container {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.error-container h1 {
+    font-size: 24px;
+    color: #dc3545;
+    margin: 0;
+}
+
+.error-container p {
+    margin: 10px 0 0;
+    color: #6c757d;
+}
+
+.error-container a {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.error-container a:hover {
+    background-color: #c82333;
+}
+

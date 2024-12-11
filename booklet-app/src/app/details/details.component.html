@@ -84,10 +84,10 @@
                     <h2 class="book-title">{{review.ownerName}}</h2>
                 </div>
                 <div class="book-info" >
-                    <p class="book-review">{{review.review}}</p>
+                    <p class="book-review">{{review.review }}</p>
                 </div>
                 <div class="book-date" >
-                    <p class="book-author">{{review.created_at |  date: 'dd-MMMM-yyyy'}}</p>
+                    <p class="book-author">{{review.created_at |  elapsedTime}}</p>
                 </div>
                 <div>
                     <p class="book-price">{{review.rating}}</p>

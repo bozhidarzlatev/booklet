@@ -1,10 +1,8 @@
 import { Router } from "express";
 import bookService from "../services/bookService.js";
-import cookieParser from 'cookie-parser';
-import jwt from 'jsonwebtoken';
 import 'dotenv/config';
-import authController from "./authController.js";
 import authService from "../services/authService.js";
+import bodyParser from "body-parser";
 
 const bookController = Router();
 
@@ -37,10 +35,12 @@ bookController.get('/all', async (req, res) => {
         res.json(booksData)
 })
 
+
+// single
 bookController.get('/details/:bookId', async (req, res) => {  
     const {bookId} = req.params    
       
-    const bookDetails = await bookService.getOneBook(bookId).lean()
+    const bookDetails = await bookService.getOneBook(bookId)
     res.json(bookDetails)
 })
 
@@ -53,6 +53,16 @@ bookController.get('/top', async (req, res) => {
         res.status(400).send({message: err})
     }
 
+})
+
+
+bookController.post('/', async (req, res) => {
+    const data = req.params.input
+    const searchQuery = req.body.searchQuery;
+    console.log(data);
+    console.log(searchQuery);
+    res.send(data)
+    
 })
 
 

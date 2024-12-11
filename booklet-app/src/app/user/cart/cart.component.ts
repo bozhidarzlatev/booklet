@@ -30,15 +30,16 @@ export class CartComponent implements OnInit{
   userId: string | undefined = undefined
 
   ngOnInit(): void {
-      this.userId = this.userService.user?._id
-    
-    this.cartLength?.forEach(item => 
-      this.apiService.getSingleBook(item).subscribe(response => {
-        this.totalPrice += response.price;
-        this.cardItems.push(response)
-        
-      })
-    )
+    this.userId = this.userService.user?._id
+
+    this.apiService.getCartData().subscribe((data)=>{
+      this.cardItems = data    
+
+      data.forEach(element => {     
+        this.totalPrice += element.price
+      });
+    })
+
     
       
   }

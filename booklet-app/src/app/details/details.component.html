@@ -31,13 +31,20 @@
             </div>
             
             <!-- Interactive Buttons Section -->
-            <div class="book-actions">
-                <p class="book-price"><strong>Price:</strong> {{book.price}} lv.</p>
-                <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
-                <button class="review-btn" routerLink="/all/details/{{book._id}}/review">Add review</button>
-                <button class="review-btn">Edit movie</button>
-                <button class="review-btn"  (click)="nzbrat()">Delete movie</button>
-            </div>
+             @if (isLoggedIn) {
+
+                 <div class="book-actions">
+                     <p class="book-price"><strong>Price:</strong> {{book.price}} lv.</p>
+                     <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
+                     @if (!isOwner) {
+                         <button class="review-btn" routerLink="/all/details/{{book._id}}/review">Add review</button>
+                        } @else { 
+
+                            <button class="review-btn">Edit movie</button>
+                            <button class="review-btn"  >Delete movie</button>
+                        }
+                    </div>
+                }
         </div>
         
         
@@ -102,9 +109,12 @@
                 
             } 
             
-            <div class="button-container">
-                <button class="place-order-btn" routerLink="/all/details/{{book._id}}/review">Add review!</button>
-            </div>
+            @if (isLoggedIn && !isOwner) {
+
+                <div class="button-container">
+                    <button class="place-order-btn" routerLink="/all/details/{{book._id}}/review">Add review!</button>
+                </div>
+            }
     
 
 

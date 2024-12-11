@@ -49,10 +49,15 @@ export class DetailsComponent implements OnInit {
     
   }
 
-  nzbrat() {
-    this.userService.getProfile
+  
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged
   }
 
+  get isOwner(): boolean {
+    return this.userService.user?._id === this.book.owner
+  }
+  
   addToCart() {
     const userId = this.userService.user?._id;
     // this.cartService.addToCart(this.product);

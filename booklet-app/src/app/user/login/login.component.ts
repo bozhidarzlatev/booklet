@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { matchPasswordsValidator } from '../../utils/match-password.validator';
 import { UserService } from '../user.service';
 import { usernameValidator } from '../../utils/username.validator';
 

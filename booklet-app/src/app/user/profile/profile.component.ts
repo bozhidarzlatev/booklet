@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
 import { User, UserProfileResponse } from '../../types/user';
-import { log } from 'console';
 
 @Component({
   selector: 'app-profile',

@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
-import { User, UserForAuth, UserProfileResponse } from '../types/user';
+import { User, UserProfileResponse } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
-import { log } from 'node:console';
-import { Book } from '../types/book';
-// import { Theme } from '../types/theme';
 
 @Injectable({
   providedIn: 'root'

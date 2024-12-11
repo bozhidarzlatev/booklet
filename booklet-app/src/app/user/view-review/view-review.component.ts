@@ -21,9 +21,10 @@ export class ViewReviewComponent implements OnInit {
   user: User  | null = null;
   userId: string | undefined = undefined
 
+
+  //TO DO
   ngOnInit(): void {
     this.userId = this.userService.user?._id
-    console.log(this.userId);
     
     // this.apiService.getReview(this.userId).subscribe((data)=>{
       // this.reviews = data    

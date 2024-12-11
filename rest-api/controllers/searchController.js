@@ -8,11 +8,7 @@ const searchController = Router();
 searchController.get('/:searchId', async (req, res) =>{
     const search = req.params.searchId
     const result = await bookService.allBooks(search).lean()
-    // console.log(result);
-    console.log(`========================================================================`);
-    console.log(`========================================================================`);
-    console.log(`sear` , result);
-    
+
     res.status(200).send(result)
 });
 

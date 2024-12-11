@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { Book } from '../types/book';
-import { log } from 'console';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { httpValidator } from '../utils/http.validator';
 

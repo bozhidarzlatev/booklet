@@ -7,7 +7,6 @@ import { switchMap } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { SlicePipe } from '../shared/pipes/slice.pipe';
 import { ElapsedTimePipe } from '../shared/pipes/elapsed-time.pipe';
-import { CartService } from '../user/cart/cart.service';
 
 @Component({
   selector: 'app-details',

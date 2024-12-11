@@ -47,7 +47,6 @@ export class CartComponent implements OnInit{
 
 
   placeOrder(): void {
-    // First call placeOrder
     this.apiService.placeOrder(this.userId!, this.cardItems!, this.totalPrice!).pipe(
       switchMap(() => {
         return this.userService.getProfile(); 

@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { title } from 'process';
 import {  ApiService } from '../api.service';
-import { log } from 'console';
 import { httpValidator } from '../utils/http.validator';
 
 @Component({

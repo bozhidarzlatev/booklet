@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Book, BookToAdd } from '../types/book';
 import { ApiService } from '../api.service';
-import { log } from 'console';
 import { UserService } from '../user/user.service';
 import { debounceTime, Subject, switchMap } from 'rxjs';
 
@@ -24,10 +23,10 @@ export class MainComponent implements OnInit {
 
     constructor(private apiService: ApiService, private userService: UserService) {
       this.searchSubject.pipe(
-        debounceTime(500),  // Wait for 500ms after the user stops typing
-        switchMap((searchText) => this.apiService.search(searchText))  // Call the API
+        debounceTime(500),  
+        switchMap((searchText) => this.apiService.search(searchText))  
       ).subscribe((response: Book[]) => {
-        console.log(`search result`, response);  // Handle the API response
+        console.log(`search result`, response);  
         this.books = response
       });
     }

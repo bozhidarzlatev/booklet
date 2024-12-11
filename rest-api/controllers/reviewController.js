@@ -67,7 +67,6 @@ reviewController.get('/:bookId', async (req, res) => {
 
 reviewController.get('/user',authenticateToken, async (req, res) =>{
     // const userId = req.user
-    console.log(`sads`);
     
     // try {
     //     const userReviews = await Review.find({ownerId: userId}).lean();

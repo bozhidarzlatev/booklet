@@ -1,6 +1,30 @@
 # booklet
 SoftUni Project Defense - Regular Exam
 
+Please read: App is not 100% done, i didn't manage to implement all the features. Currently it's 23:15 and i am writing you some notes!
+State managment is bad, i think i know what is the problem - but don't have the time to deal with it.
+As some core functionalities were not implemented i decided to do them instead.
+When you are in profile view and refresh the app, detail are missing. I think it is beacaus the BehaviorSubject refreshes and the view get's the info before it can populate again.
+I fixed this issue in some places but didn't manage to do it on a globale scale.
+Some other menues are missing - i note them with //TO DO - maybe i missed someone, sorry!
+
+App i based on MEASN Stack and you will need a MongoDB, i didn't provide a database to load.... no time.
+
+To run the app please follow the instructions
+Open new terminal:
+    -cd rest-api  
+    -npm i
+    -npm run dev / npm start
+
+Open new terminal 
+    - cd booklet-app
+    or use cd ../ from the previous dir
+    -npm i
+    -ng serve
+
+
+
+
 Hi there! My name is Bozhidar Zlatev and this is my project for the Angular Course - oct 2024.
 My project is about an online bookstore - booklet, where there should be functionalities / i've i implement them correctly ;) / as:
     * Guest and user views    
@@ -20,9 +44,9 @@ The development is planned to proceed as shown:
     1 - Set Angular                                       0 days            25.11.2024      25.11.2024       0 days           Done
     2 - Fron-end development -                            2-3 days          25.11.2024      26.11.2024       1 day            Dobe       Core structure is done 
         HTML and CSS set up and different views.                                                                                         Further development on demand   
-    3 - Back-end -                                        7 days max        02.12.2024  
+    3 - Back-end -                                        7 days max        02.12.2024      11.12.2024       not enough    partial done  not enought time
         currently i don't have idea or solution.. ;)         
-    4 - Implementing Angular features.                    10 days max       02.12.2024              
+    4 - Implementing Angular features.                    10 days max       02.12.2024      11.12.2024       not enough    partial done  not enought time
 
 
 
@@ -87,7 +111,5 @@ The development is planned to proceed as shown:
         -added edit functionality
         -added delete functionality
         -implemented search functionality - need more work!
-
-        //TO DO
-        cosmetics 
-        Guards
+        -writing a final project description
+            

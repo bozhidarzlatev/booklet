@@ -25,7 +25,6 @@ function allBooks(filter = {}) {
         
     } 
     
-    // console.log(query);
     return query;
 
 

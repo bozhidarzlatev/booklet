@@ -1,9 +1,6 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../user/user.service';
-import { Observable } from 'rxjs';
-import { User } from '../../types/user';
-import { CartService } from '../../user/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +12,7 @@ import { CartService } from '../../user/cart/cart.service';
 export class HeaderComponent implements OnInit  {
   cartCount: number = 0;
 
-  constructor(private cartService: CartService ,private userService: UserService, private router: Router) {
+  constructor(private userService: UserService, private router: Router) {
    
   }
 
@@ -36,10 +33,7 @@ export class HeaderComponent implements OnInit  {
     }
 
     ngOnInit(): void {
-      // // Subscribe to the cart item count observable
-      // this.cartService.cartItemCount$.subscribe(count => {
-      //   this.cartCount = count;
-      // });
+
     }
   
 

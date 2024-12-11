@@ -6,7 +6,6 @@ import { UserService } from '../user.service';
 import { emailValidator } from '../../utils/email.validator';
 import { httpValidator } from '../../utils/http.validator';
 import { usernameValidator } from '../../utils/username.validator';
-// import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-register',

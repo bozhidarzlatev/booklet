@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Book ,  ReviewData } from '../types/book';
 import { ApiService } from '../api.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UserService } from '../user/user.service';
 import { switchMap } from 'rxjs';
 import { DatePipe } from '@angular/common';
@@ -20,7 +20,7 @@ export class DetailsComponent implements OnInit {
   book = {} as Book;
   reviews: ReviewData[] = [] ; 
 
-  constructor( private cartService: CartService , private apiService: ApiService, private route: ActivatedRoute, private userService: UserService) {}
+  constructor( private router: Router , private apiService: ApiService, private route: ActivatedRoute, private userService: UserService) {}
 
   product = {
     id: 1,
@@ -59,7 +59,11 @@ export class DetailsComponent implements OnInit {
   }
 
   deleteBook() {
-
+    const bookId = this.book._id
+    console.log(`delete`);
+    this.apiService.deleteBook(bookId).subscribe(()=>{
+      this.router.navigate(['/all'])
+    })
     
   }
   

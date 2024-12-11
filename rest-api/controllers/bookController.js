@@ -4,6 +4,7 @@ import 'dotenv/config';
 import authService from "../services/authService.js";
 import authenticateToken from "../middlewares/authenticate.js";
 import Book from "../models/Book.js";
+import mongoose from "mongoose";
 const bookController = Router();
 
 const AUTH_COOKIE_NAME = 'auth';
@@ -30,7 +31,7 @@ bookController.post('/add', async (req, res) =>{
 bookController.put('/edit/:bookId',authenticateToken, async (req, res) =>{
     const {bookId, imageUrl, title, author, genre, year, price, description, owner} = req.body
     if (req.user !== req.body.owner) {
-        res.status(4001).send(`You are not athorized`)
+        res.status(500).send(`You are not athorized`)
     }
     
     const editData = {imageUrl, title, author, genre, year, price, description, owner} 
@@ -44,16 +45,40 @@ bookController.put('/edit/:bookId',authenticateToken, async (req, res) =>{
         {new: true}
     )
 
-    if (editedBook) {
-        
         res.status(200).send(editedBook)
-    } 
-} catch (error) {
+    } catch (error) {
         
     throw new Error("Failed to edit book");
     res.status(500).send({ message: 'Server error' })
     
 }
+
+})
+
+
+bookController.delete('/delete/:bookId', authenticateToken, async (req, res) => {
+        const bookId = req.params.bookId;
+        const findBookOwner = await bookService.getOneBook(bookId);
+        const curUser = req.user
+        const userToObject = new mongoose.Types.ObjectId(curUser)
+        if (!userToObject.equals(findBookOwner.owner)) {
+            
+            res.status(500).send(`You are not athorized`)
+        }
+
+
+        
+        try {
+            const deleted = await Book.findByIdAndDelete(bookId);
+            
+            res.status(200).send(deleted)
+        } catch (err) {
+                throw new Error("Failed to delete book");
+            
+                res.status(500).send({message: err})
+            
+            }
+            
 
 })
 

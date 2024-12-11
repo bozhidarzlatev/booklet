@@ -85,8 +85,8 @@ The development is planned to proceed as shown:
         -added cart count 
         -edit, delete, review buttons view for appropriate users
         -added edit functionality
+        -added delete functionality
 
         //TO DO
-        DELETE
         cosmetics 
         Guards

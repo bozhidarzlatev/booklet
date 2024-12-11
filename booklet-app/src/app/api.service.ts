@@ -28,6 +28,10 @@ export class ApiService {
     
   }
 
+  deleteBook(bookId: string) {
+    return this.http.delete(`/api/books/delete/${bookId}`)
+  }
+
   allBooks() {
     return this.http.get<Book[]>('/api/books/all')
   }

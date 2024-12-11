@@ -22,11 +22,16 @@ export class ProfileComponent implements OnInit {
     _id: '',
     cart: [],
     orders: [],
+    reviews: [],
 
   }
 
   get cartCount() {
     return this.profileDetails.cart?.length
+  }
+
+  get reviewsCount() {
+    return this.profileDetails.reviews?.length
   }
 
   
@@ -59,15 +64,15 @@ export class ProfileComponent implements OnInit {
         // response contains userdata and uploads
         const { userdata, uploads } = response;
 
-        
-        // Assign the data to profileDetails and uploadsCount
+                
         this.profileDetails = {
           username: userdata.username,
           email: userdata.email,
           profileImg: userdata.profileImg,
           _id: userdata._id,
           cart: userdata.cart,
-          orders: userdata.orders
+          orders: userdata.orders,
+          reviews: userdata.reviews
         };
         this.uploadsCount = uploads;
         

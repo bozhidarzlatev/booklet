@@ -86,6 +86,7 @@ The development is planned to proceed as shown:
         -edit, delete, review buttons view for appropriate users
         -added edit functionality
         -added delete functionality
+        -implemented search functionality - need more work!
 
         //TO DO
         cosmetics 

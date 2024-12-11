@@ -4,6 +4,7 @@ import { Book, BookToAdd } from '../types/book';
 import { ApiService } from '../api.service';
 import { log } from 'console';
 import { UserService } from '../user/user.service';
+import { debounceTime, Subject, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-main',
@@ -14,12 +15,22 @@ import { UserService } from '../user/user.service';
 })
 export class MainComponent implements OnInit {
   books: Book[] = [];
-  
+  searchText: string = '';
+  searchSubject: Subject<string> = new Subject<string>();
+
   get isBooksEmpty():boolean {
     return this.books.length === 0;
   }
 
-    constructor(private apiService: ApiService, private userService: UserService) {}
+    constructor(private apiService: ApiService, private userService: UserService) {
+      this.searchSubject.pipe(
+        debounceTime(500),  // Wait for 500ms after the user stops typing
+        switchMap((searchText) => this.apiService.search(searchText))  // Call the API
+      ).subscribe((response: Book[]) => {
+        console.log(`search result`, response);  // Handle the API response
+        this.books = response
+      });
+    }
 
   ngOnInit(): void {  
 
@@ -31,14 +42,18 @@ export class MainComponent implements OnInit {
 
   }
 
-  searchInput(input: Event) {
-    // const input = event.target as HTMLInputElement;
-    // this.apiService.search(input.value).subscribe((response) => {
-      // console.log(response);
+  searchInput(e: Event) {
+    const input = e.target as HTMLInputElement;
+    const text = input.value
+    if (text === '' || text === '#' ) {
       
-      // console.log(input) // Logs the updated input value on every keystroke
-    // })
+      return 
+    }
+
+      this.searchText = text;
+      this.searchSubject.next(text);
   }
+
 
 
 }

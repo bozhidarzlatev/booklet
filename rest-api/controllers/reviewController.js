@@ -9,8 +9,6 @@ const reviewController = Router();
 
 
 
-
-// Home Page - GET
 reviewController.post('/', authenticateToken,  async (req, res) =>{
     const {review , rating, bookId} = req.body;
     const user = req.user
@@ -65,6 +63,22 @@ reviewController.get('/:bookId', async (req, res) => {
         console.error(err);
         res.status(500).json({ message: 'Error fetching reviews', error: err });
     }
+})
+
+reviewController.get('/user',authenticateToken, async (req, res) =>{
+    // const userId = req.user
+    console.log(`sads`);
+    
+    // try {
+    //     const userReviews = await Review.find({ownerId: userId}).lean();
+    //     res.status(200).send(userReviews);
+        
+    // } catch (error) {
+    //     console.error(err);
+    //     res.status(500).json({ message: 'Error fetching reviews', error: err });
+    // }
+    
+    res.status(200).send({message: `sads`});
 })
 
 

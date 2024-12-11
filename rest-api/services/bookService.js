@@ -9,9 +9,29 @@ function  create(bookData, userId, userName) {
 
 function allBooks(filter = {}) {
     const query = Book.find();
+    
+    
+    if (filter && typeof filter === 'string') {
+        if (filter.startsWith('$')) {
+            
+            query.find({ author: { $regex: filter.substring(1,), $options: 'i' } })
+        } else if ((filter.startsWith('@'))) {
+            
+            query.find({ ownerName: { $regex: filter.substring(1,), $options: 'i' } })
+        } else {
 
+            query.find({ title: { $regex: filter, $options: 'i' } })
+        }
+        
+    } 
+    
+    // console.log(query);
     return query;
+
+
 };
+
+
 
 async function getOneBook(bookId) {
     const book = await Book.findById(bookId)

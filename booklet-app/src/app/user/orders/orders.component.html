@@ -21,7 +21,7 @@
 
                     @for (item of order.orderData; track $index) {
                         <div class="cart-item" >
-                            <div class="book-info" routerLink="/all}">
+                            <div class="book-info" routerLink="/all/details/{{item._id}}">
                                 <h2 class="book-title">{{item.title}}</h2>
                                 <div class="tooltip" >
                                     <img src="{{item.imageUrl}}" />

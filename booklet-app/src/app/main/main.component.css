@@ -8,9 +8,9 @@
 }
 
 .search-bar{
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px ;
+    border-radius: 15px;
     display: flex;
+    width: 600px;
     align-items: center;
     justify-content: center;
     position: relative;

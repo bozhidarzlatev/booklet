@@ -4,6 +4,7 @@ import authController from "../controllers/authController.js";
 import bookController from "../controllers/bookController.js";
 import profileController from "../controllers/profileController.js";
 import reviewController from "../controllers/reviewController.js";
+import searchController from "../controllers/searchController.js";
 
 const routes = Router();
 
@@ -15,6 +16,6 @@ routes.use('/api/auth', authController)
 routes.use('/api/books', bookController)
 routes.use('/api/user', profileController)
 routes.use('/api/reviews', reviewController)
-routes.use('/api/search', bookController)
+routes.use('/api/search', searchController)
 
 export default routes;

@@ -8,14 +8,14 @@ import 'dotenv/config';
         if (!auth) {
           return res.status(401).json({ message: 'Token missing' });
         }
-      
+        
         jwt.verify(auth, secret, (err, user) => {
           
           if (err) return res.status(403).json({ message: 'Invalid token' });
           const userId = user._id;
           req.user = userId       
           req.username = user.username
-
+       
           next();
         });
       }

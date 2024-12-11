@@ -1,4 +1,3 @@
-import { Book } from "./book";
 
 export interface UserForAuth {
     username: string;
@@ -15,6 +14,7 @@ export interface UserForAuth {
     _id: string,
     cart?: string[],
     orders?: string[],
+    reviews?: string[],
   }
 
 
@@ -26,6 +26,7 @@ export interface UserForAuth {
       profileImg: string;
       cart: string[];
       orders: string[];
+      reviews: string[]
     };
     uploads: number;
   }

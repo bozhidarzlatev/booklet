@@ -22,6 +22,7 @@ export interface BookToAdd {
     owner: string;
     rating: string;
     ownerName: string;
+    
   }
 
   export interface ReviewData {

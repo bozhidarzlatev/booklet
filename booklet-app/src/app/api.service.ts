@@ -75,4 +75,9 @@ export class ApiService {
     return this.http.get<Book[]>(`/api/user/cart/data`)
   }
 
+  getReview() {
+    return this.http.get<ReviewData[]>(`/api/reviews/user`)
+  }
+
+
 }

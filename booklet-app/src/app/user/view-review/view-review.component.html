@@ -1,0 +1,36 @@
+
+<section class="cart-container">
+    <h1>{{title}}</h1>
+    <!-- @if (cardItems.length>0) { -->
+        <ul class="cart-list">
+
+            <!-- @for (book of cardItems; track $index) { -->
+                    <div class="cart-item" >
+                        <div class="book-info" routerLink="/all/details/">
+                            <h2 class="book-title"></h2>
+                            <div class="tooltip" >
+                                <img src="" />
+                            </div>
+                        </div>
+                        
+                        <div class="book-info" >
+                            <p class="book-author">by </p>
+                        </div>
+                        <p class="book-price"> lv.</p>
+                    </div>
+
+            <!-- } -->
+
+        </ul>
+<!-- } @else{ -->
+    <div>
+        <h2 class="no-items">No items in cart!</h2>
+        <div class="browse-link">
+            <a routerLink="/all">Browse books</a>
+        </div>
+    </div>
+<!-- } -->
+
+    </section>
+
+

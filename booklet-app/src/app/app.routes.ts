@@ -12,6 +12,7 @@ import { OrdersComponent } from './user/orders/orders.component';
 import { AddReviewComponent } from './reviews/add-review/add-review.component';
 import { ErrorMessageComponent } from './core/error-message/error-message.component';
 import { EditComponent } from './edit/edit.component';
+import { ViewReviewComponent } from './user/view-review/view-review.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, data: { title: 'Home Page' } },
@@ -27,6 +28,7 @@ export const routes: Routes = [
         {path: '', component: ProfileComponent, data: { title: 'Profile page' }},
         {path: 'cart', component: CartComponent, data: { title: 'Items in cart' }},
         {path: 'orders', component: OrdersComponent, data: { title: 'Your orders' }},
+        {path: 'reviews', component: ViewReviewComponent, data: { title: 'Your reviews' }},
         
     ]},
     {path: 'login', component: LoginComponent, data: { title: 'Login - Nice to see you again' }},

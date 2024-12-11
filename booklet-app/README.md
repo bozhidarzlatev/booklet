@@ -1,27 +1,69 @@
 # BookletApp
+Open new terminal 
+    - cd booklet-app
+    or use cd ../ from the previous dir
+    -npm i
+    -ng serve
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
 
-## Development server
+CORS is set to allow requests from localhost:4200 - Please run ng app at localhost:4200
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Main features:
+    ### Home menu
+        -Welcome message
+        -Quick links
+        -Top rated books - when clicked app redirects you to details page
+    
+    Accessible for everyone
 
-## Code scaffolding
+    ### Browse menu
+        -Catalog of all books - when clicked app redirects you to details page
+        -search bar - NEEDS MORE WORK - when you type and then delete all characters the app doesn't show you all book
+            -if you search only leters and numbers - it will provide you with search result based on the title
+            -if you add @ infront of the word - it will provide you with search result based on the user who uploaded the books
+            -if you add $ infront of the word - it will provide you with search result based on the author
+            IMPORTANT - some special charactars break the search and the app - i tried to filter them, but there can be more
+    
+    Accessible for everyone
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+    ### Add menu
+        -Provides the functionality to add new book
+        -There are validator
 
-## Build
+    Accessible only for logged in users
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+    ### Details view
+        -Provies detailed view
+        -Buttons for adding to cart, add review, edit, delete 
+        -Buttons appear dynamicly based of authorization and authentication - No guards are implemented through the whole app
+        
+        IMPORTANT - view need more work
+    
+    Accessible for everyone - view and features based on authorization and authentication
 
-## Running unit tests
+    ### Profile view
+        -Provides quick links to your Cart, uploaded Books, Orders, Review - Some don't work in current version
+        -Edin button - Don't work
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+    Accessible only for logged in users
 
-## Running end-to-end tests
+    ### Cart view 
+        -View all books in cart and Place order
+        -No remove from card functionality currently available
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ### Orders vie
+        -View all your orders
 
-## Further help
+    ### Uploads view
+    ### Review view
+        -Not implemented, upload view was dependable on the search functionality
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    There were supposted to be links on the author and user and genre in details view and in catalog view cards, but that depended on search functionality too
+
+
+    ### Login view , Register view, Logout
+        - it provides it's specified functionality
+
+ 
+ IMPORTANT - no guards were implemente, only basic guards for the request at the back-end!
+ It is 23:57 and i am officiali done... mike drop ... or more likely mouse drop! ;)

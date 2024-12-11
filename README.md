@@ -7,8 +7,16 @@ As some core functionalities were not implemented i decided to do them instead.
 When you are in profile view and refresh the app, detail are missing. I think it is beacaus the BehaviorSubject refreshes and the view get's the info before it can populate again.
 I fixed this issue in some places but didn't manage to do it on a globale scale.
 Some other menues are missing - i note them with //TO DO - maybe i missed someone, sorry!
+Search don't work properlu. I tried to make a dynamic search but when something is typed and deleted it doesnt show you all the books.
+No Pagination is implemented.
+Also no guards were implemented.
+As i said - i have no more time and i preffer to describe my project.
+You can read more about the app in booklet-app README
 
 App i based on MEASN Stack and you will need a MongoDB, i didn't provide a database to load.... no time.
+
+00:25 
+IMPORTANT - CORS is set to allow request from localhost:4200 - please run Angular app at localhost:4200!!!
 
 To run the app please follow the instructions
 Open new terminal:

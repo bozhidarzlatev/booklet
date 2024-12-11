@@ -35,13 +35,13 @@
 
                  <div class="book-actions">
                      <p class="book-price"><strong>Price:</strong> {{book.price}} lv.</p>
-                     <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
                      @if (!isOwner) {
+                     <button class="add-to-cart-btn" (click)="addToCart()">Add to Cart</button>
                          <button class="review-btn" routerLink="/all/details/{{book._id}}/review">Add review</button>
                         } @else { 
 
-                            <button class="review-btn">Edit movie</button>
-                            <button class="review-btn"  >Delete movie</button>
+                            <button class="review-btn" routerLink="/all/details/{{book._id}}/edit">Edit book</button>
+                            <button class="review-btn" (click)="deleteBook()"  >Delete book</button>
                         }
                     </div>
                 }

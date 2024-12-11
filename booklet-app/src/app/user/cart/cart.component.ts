@@ -54,12 +54,10 @@ export class CartComponent implements OnInit{
       })
     ).subscribe({
       next: (profile) => {
-        console.log('User profile updated:', profile);
         
         this.router.navigate(['/']);
       },
       error: (err) => {
-        console.error('Error placing order or fetching profile:', err);
       }
     });
   }

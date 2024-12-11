@@ -20,6 +20,14 @@ export class ApiService {
     
   }
 
+  editBook(bookId: string, imageUrl: string, title: string, author: string, genre: string, year: number, price: number, description: string, owner: string) {
+    const priceData = price.toFixed(2)
+    
+    const payload = {bookId, imageUrl, title, author, genre  ,year, price: priceData,  description, owner}
+    return this.http.put<BookToAdd>(`/api/books/edit/${bookId}`, payload)
+    
+  }
+
   allBooks() {
     return this.http.get<Book[]>('/api/books/all')
   }

@@ -36,7 +36,7 @@ export class MainComponent implements OnInit {
     // this.apiService.search(input.value).subscribe((response) => {
       // console.log(response);
       
-      console.log(input) // Logs the updated input value on every keystroke
+      // console.log(input) // Logs the updated input value on every keystroke
     // })
   }
 

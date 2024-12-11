@@ -11,6 +11,7 @@ import { DetailsComponent } from './details/details.component';
 import { OrdersComponent } from './user/orders/orders.component';
 import { AddReviewComponent } from './reviews/add-review/add-review.component';
 import { ErrorMessageComponent } from './core/error-message/error-message.component';
+import { EditComponent } from './edit/edit.component';
 
 export const routes: Routes = [
     {path: 'home', component: HomeComponent, data: { title: 'Home Page' } },
@@ -20,6 +21,7 @@ export const routes: Routes = [
         {path: '', component: MainComponent, data: { title: 'All books' }},
         {path: 'details/:bookId', component: DetailsComponent,  data: { title: 'Details' }},
         {path: 'details/:bookId/review', component: AddReviewComponent,  data: { title: 'Add Review' }},
+        {path: 'details/:bookId/edit', component: EditComponent,  data: { title: 'Edit book' }},
     ]} ,
     {path: 'profile', children: [
         {path: '', component: ProfileComponent, data: { title: 'Profile page' }},

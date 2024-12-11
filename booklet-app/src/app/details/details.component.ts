@@ -57,6 +57,11 @@ export class DetailsComponent implements OnInit {
   get isOwner(): boolean {
     return this.userService.user?._id === this.book.owner
   }
+
+  deleteBook() {
+
+    
+  }
   
   addToCart() {
     const userId = this.userService.user?._id;

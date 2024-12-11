@@ -73,10 +73,8 @@ export class ProfileComponent implements OnInit {
         
       },
       error: (err) => {
-        console.error('Error fetching user profile data:', err);
       },
       complete: () => {
-        console.log('User profile data fetched successfully');
       }
     });
   }

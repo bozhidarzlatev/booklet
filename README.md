@@ -84,10 +84,9 @@ The development is planned to proceed as shown:
         -added form validations
         -added cart count 
         -edit, delete, review buttons view for appropriate users
+        -added edit functionality
 
         //TO DO
-        EDIT
         DELETE
         cosmetics 
-        BehaviorSubject fixes
         Guards
